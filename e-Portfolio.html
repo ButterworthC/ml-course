@@ -6,10 +6,13 @@
 <body>
 <h1>e-Portfolio for ML course 2024</h1>
 <h2>Chris Butterworth</h2>
-<p>The notebooks and data files are available at <a href="https://github.com/ButterworthC/ml-course">https://github.com/ButterworthC/ml-course</a></p>
-
+<p>
 <a href="about-me.html">About me</a><br>
 <a href="prep.html">Preparation for Machine Learning module</a><br>
+</p>
+<p>
+The notebooks and data files are available at <a href="https://github.com/ButterworthC/ml-course">https://github.com/ButterworthC/ml-course</a>
+</p>
 
 <h3>Unit 1: Introduction to Machine Learning (ML)</h3>
 <p>
@@ -24,15 +27,61 @@ Supervised and unsupervised machine learning were mentioned briefly, as were the
 <p>Much of this unit involved preparation for the collaborative discussion on Industry 4.0, the upcoming team data analysis project, and the e-Portfolio.
 We were directed to a notebook which demonstrates EDA. Unfortunately I was unable to find this in Google Colab so I found a similar notebook and dataset in Kaggle.<br>
 I looked for relationships between the prices of cars and their number of cylinders, horsepower, fuel efficiency etc., and produced scatter plots and a correlation matrix.<br>
-The notebook is <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Unit%202%20Kaggle%20EDA.ipynb">Unit 2 Kaggle EDA.ipynb</a> and the dataset is <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/data/kaggle_car_data_for_eda.csv">kaggle_car_data_for_eda.csv</a>
+The notebook I created is <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Unit%202%20Kaggle%20EDA.ipynb">Unit 2 Kaggle EDA.ipynb</a> and the dataset is <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/data/kaggle_car_data_for_eda.csv">kaggle_car_data_for_eda.csv</a>
 </p>
 <p><b>References</b></p>
 <p>Moore, I (2021) Intro to Exploratory data analysis (EDA) in Python. Available from: <a href="https://www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook">www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook</a> [Accessed 16 April 2024]</p>
 
 <h3>Unit 3: Correlation and Regression</h3>
 <p>
+We were directed to look at four notebooks (University of Essex, 2024) and see how the calculated correlation and regression depend on the supplied data.
+</p>
+<p>
+<b>Ex 1: Covariance and Pearson's correlation between two variables</b><br>
+The first notebook was ready to run and immediately displayed a scatter plot between two sets of random numbers with weightings applied.
+I quickly discovered that the number (1000) in the randn() function needed to be the same for both sets (of course), but that varying the 
+factors (20, 10) and the offsets (100, 50) changed not only the shape of the plot but also the means and standard deviations for either 
+dataset and the covariance and Pearson's correlation, a.k.a. the correlation coefficient (Nield, 2022: 171-179).
+</p>
+<p>
+<b>Ex 2: Linear Regression</b><br>
+The scipy library was imported as "stats" but referenced in the calls to the linregress() and pearsonr() methods as "stat" - preventing 
+the notebook from running.
+It occurred to me that this might have been a test to see if we were actually running these notebooks instead of just looking at them.
+Passing arrays of x and y values to the SciPy lingress() method and receiving them as a tuple to variables for slope and intercept
+(discarding the ones for r, p and std_err), the notebook then uses the SciPy pearsonr() method to calculate the correlation, before defining
+its own simple function, based on y = mx + b (or y = mx + c as we say over here), for predicting y based on a given x (Harrison, 2019: 191-222).
+</p>
+<p>
+<b>Ex 3: Multiple Linear Regression</b><br>
+This notebook uses the LinearRegression method (Nield, 2022: 191) of the sklearn library instead of SciPy.  The regression has two independent variables, weight in kg and engine 
+volume in cm<sup>3</sup>, and one dependent variable, CO2, in units of grams (per what? mile, km, hour? It doesn't say!).  
+The regression object returns an array of two coefficients for the two regressions.
+Its predict() method performs the same task as the custom function in the previous exercise.
+</p>
+<p>
+<b>Ex 4: Polynomial Regression</b><br>
+"A quadratic regression between the response Y and the predictor X would take the form: 
+<i>Y = b<sub>0</sub> + b<sub>1</sub>X + b<sub>2</sub>X<sup>2</sup> + e</i>" (Bruce et al., 2020: 188-189). 
+The numpy library has a function called polyfit(), which takes arrays containing the x and y coordinates as its first two parameters, 
+and a function called poly1d(), which takes the output from polyfit(), for creating a model based on the data.  
+The value of r-squared given in this example is over 0.94, indicating a strong positive relation.
+</p>
+<p><b>References</b></p>
+<p>Bruce P, Bruce, A. &amp; Gedeck, P. (2019) <i>Practical Statistics for Data Scientists</i>. 2nd ed. Sebastopol, CA: O'Reilly Media Inc.</p>
+<p>Harrison, M. (2019) <i>Machine Learning Pocket Reference</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
+<p>Nield, T. (2022) <i>Essential Math for Data Science</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
+<p>University of Essex. (2024) Unit 3 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958879">www.my-course.co.uk/mod/page/view.php?id=958879</a> [Accessed 8th May 2024]</p>
+
+<h3>Unit 4: </h3>
+<p>
 
 </p>
+<p><b>References</b></p>
+
+
+
+
 
 
 <a href=""></a><br>
