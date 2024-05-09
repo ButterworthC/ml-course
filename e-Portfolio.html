@@ -34,7 +34,7 @@ and the dataset is <a href="https://github.com/ButterworthC/ml-course/blob/main/
 
 <h3>Unit 3: Correlation and Regression</h3>
 <p>
-We were directed to look at four notebooks (<a href="#unit3">University of Essex, 2024</a>) 
+We were directed to look at four notebooks (<a href="#unit3">University of Essex, 2024a</a>) 
 and see how the calculated correlation and regression depend on the supplied data.
 </p>
 <p>
@@ -72,7 +72,23 @@ and a function called poly1d(), which takes the output from polyfit(), for creat
 The value of r-squared given in this example is over 0.94, indicating a strong positive relation.
 </p>
 
-<h3>Unit 4: </h3>
+<h3>Unit 4: Linear Regression with Scikit-Learn</h3>
+<p>
+I had a look at the Fuel Consumption notebook (<a href="#unit4">University of Essex, 2024b</a>), 
+which was very similar to the one I found in Kaggle in Unit 2. 
+The first part included a correlation matrix, which included a redundant column "MODELYEAR" containing lots of NaN values.
+I thought this could have been deleted to reduce the dimensions of the matrix and avoid confusion.
+The seaborn pairplot() method was then used to plot regression matrices, from which the strong relation between 
+fuel consumption and CO2 emissions is immediately apparent, along with the relation between city and highway MPGs, a trivial result.
+In the second part of the notebook, the dataframe is split into training and testing datasets (80/20).
+Then, the notebook imports the linear_model module from the scikit-learn library (<a href="#scavetta">Scavetta &amp; Angelov, 2021</a>)
+and instantiates the LinearRegression class as regr,
+using its fit() method with one-dimensional arrays of the x and y training data (engine size, CO2 emissions).
+Coefficient and intercept are then given by regr.coeff_ and regr.intercept_.
+Using matplotlib.pyplot, aliased as plt, the regression line is superimposed on the scatter plot.
+The Mean absolute error, Residual sum of squares (MSE), and R2-score (R squared) are calculated.
+This notebook finishes with a non-linear regression involving a custom sigmoid function.
+</p>
 <p>
 
 </p>
@@ -88,8 +104,9 @@ The value of r-squared given in this example is over 0.94, indicating a strong p
 <p id="harrison">Harrison, M. (2019) <i>Machine Learning Pocket Reference</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="moorei">Moore, I. (2021) Intro to Exploratory data analysis (EDA) in Python. Available from: <a href="https://www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook">www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook</a> [Accessed 26 April 2024]</p>
 <p id="nield">Nield, T. (2022) <i>Essential Math for Data Science</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
+<p id="scavetta">Scavetta, R.J. &amp; Angelov, B (2021) <i>Python and R for the Modern Data Scientist</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="schwab">Schwab, K. &amp; Zahid, S. (2020) The Future of Jobs. Available from: <a href="https://www3.weforum.org/docs/WEF_Future_of_Jobs_2020.pdf">www3.weforum.org/docs/WEF_Future_of_Jobs_2020.pdf</a> [Accessed 12 March 2024]</p>
-<p id="unit3">University of Essex. (2024) Unit 3 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958879">www.my-course.co.uk/mod/page/view.php?id=958879</a> [Accessed 8th May 2024]</p>
-
+<p id="unit3">University of Essex. (2024a) Unit 3 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958879">www.my-course.co.uk/mod/page/view.php?id=958879</a> [Accessed 8th May 2024]</p>
+<p id="unit4">University of Essex. (2024b) Unit 4 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818">www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818</a> [Accessed 9th May 2024]</p>
 </body>
 </html>
