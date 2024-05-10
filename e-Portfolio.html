@@ -90,11 +90,30 @@ The Mean absolute error, Residual sum of squares (MSE), and R2-score (R squared)
 This notebook finishes with a non-linear regression involving a custom sigmoid function.
 </p>
 <p>
-Then I created a notebook to perform the correlation and regression tasks using the popultion and GDP datasets.
+Then I created a notebook to perform the correlation and regression tasks using the population and GDP datasets.
 The end result needs a bit of tweaking because the mean populations do not look right (total world population of 67 billion!).
 However, I managed to clean up a lot of the data, including deduplicating Aruba and sorting the population dataset so I could 
-get both datasets synchronized (I almost got the zip() function to work).
+get both datasets synchronized (I almost got the zip() function to work).  I might come back to this one but for now I've got to move on.
 </p>
+
+<h3>Unit 5: Clustering</h3>
+<p>
+I went through the lecturecast and found some new things like SMC and Jaccard coefficient, as well as cohesion and separation, 
+which will be very useful concepts.
+</p>
+<p>
+The K-Clustering animations (<a href="#shabalin">Shabalin, N.D.</a>, <a href="#harris">Harris, 2014</a>) were very helpful in improving my understanding of this iterative process.
+</p>
+<p>
+I created a notebook called <a href="********">Unit05 Jaccard coefficients.iypnb</a>  <b>don't forget Git URL</b>    
+but did not find the hints useful, nor indeed ChatGPT, so I found an article online (<a href="#geeks">Geeks for Geeks, 2023</a>) which explained
+that the Jaccard coefficient (a.k.a. Jaccard similarity or Jaccard index) is the size of the intersection of two sets divided by the size of their union.
+The Python code for this follows on with ease because of the intersection() and union() set methods, and of course the len() function.
+It doesn't work yet!!!
+</p>
+
+
+
 
 
 <a href=""></a><br>
@@ -104,12 +123,15 @@ get both datasets synchronized (I almost got the zip() function to work).
 <h3 id="refs">References</h3>
 
 <p id="bruce">Bruce P, Bruce, A. &amp; Gedeck, P. (2019) <i>Practical Statistics for Data Scientists</i>. 2nd ed. Sebastopol, CA: O'Reilly Media Inc.</p>
+<p id="geeks">Geeks for Geeks (2023) How to Calculate Jaccard Similarity in Python. Available from: <a href="https://www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/">www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/</a> [Accessed 10 May 2024]</p>
+<p id="harris">Harris, N. (2014) Visualizing K-Means Clustering. Available from: <a href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/">www.naftaliharris.com/blog/visualizing-k-means-clustering/</a> [Accessed 10 May 2024]</p>
 <p id="harrison">Harrison, M. (2019) <i>Machine Learning Pocket Reference</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="moorei">Moore, I. (2021) Intro to Exploratory data analysis (EDA) in Python. Available from: <a href="https://www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook">www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook</a> [Accessed 26 April 2024]</p>
 <p id="nield">Nield, T. (2022) <i>Essential Math for Data Science</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="scavetta">Scavetta, R.J. &amp; Angelov, B (2021) <i>Python and R for the Modern Data Scientist</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="schwab">Schwab, K. &amp; Zahid, S. (2020) The Future of Jobs. Available from: <a href="https://www3.weforum.org/docs/WEF_Future_of_Jobs_2020.pdf">www3.weforum.org/docs/WEF_Future_of_Jobs_2020.pdf</a> [Accessed 12 March 2024]</p>
-<p id="unit3">University of Essex. (2024a) Unit 3 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958879">www.my-course.co.uk/mod/page/view.php?id=958879</a> [Accessed 8th May 2024]</p>
-<p id="unit4">University of Essex. (2024b) Unit 4 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818">www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818</a> [Accessed 9th May 2024]</p>
+<p id="shabalin">Shabalin, A.A. (N.D.) K-means clustering. Available from: <a href="http://shabal.in/visuals/kmeans/2.html">shabal.in/visuals/kmeans/2.html</a> [Accessed 10 May 2024]</p>
+<p id="unit3">University of Essex. (2024a) Unit 3 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958879">www.my-course.co.uk/mod/page/view.php?id=958879</a> [Accessed 8 May 2024]</p>
+<p id="unit4">University of Essex. (2024b) Unit 4 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818">www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818</a> [Accessed 9 May 2024]</p>
 </body>
 </html>
