@@ -113,8 +113,24 @@ The Python code for this follows on with ease because of the intersection() and 
 It doesn't work yet!!!
 </p>
 
-
-
+<h3>Unit 6: Clustering with Python</h3>
+<p>
+I found that the required reading was not relevant to this unit, so I read Chapter 15 instead and found out a lot about k-means clustering 
+(<a href="#kubat">Kubat, 2021</a>: 297-310) although the required textbook does not mention Jaccard in the index.
+</p>
+<p>
+I ran the k-means demo notebook and kept encountering a warning about a memory leak in Windows, which could be fixed "by setting the environment variable OMP_NUM_THREADS=4." (Python).
+I did this but the warning persisted when I ran the notebook again.  However, the scatter plot of income vs age displayed, although the one of education, age and income did not.
+I saw how the code looped through k values from 1 to 9, plotting the squared errors and producing an elbow at about k=3. 
+The plot for the silhouette coefficient looped from k values of 2 to 9, because there need to be at least 2 clusters because it compares
+the distance between clusters with the size of clusters and gives a value from -1 to 1. 
+"1 indicates tight clusters, and 0 means overlapping clusters" (<a href="#harrison">Harrison, 2019</a>: 277).
+</p>
+<p>
+I created a notebook called
+<a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Unit0620Jaccard%20coefficients.ipynb">Unit05 Jaccard coefficients.iypnb</a>
+and adapted some code for plotting clusters found in a Kaggle notebook (<a href="#khotijah">Khotijah, 2000</a>)
+</p>
 
 
 <a href=""></a><br>
@@ -127,6 +143,8 @@ It doesn't work yet!!!
 <p id="geeks">Geeks for Geeks (2023) How to Calculate Jaccard Similarity in Python. Available from: <a href="https://www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/">www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/</a> [Accessed 10 May 2024]</p>
 <p id="harris">Harris, N. (2014) Visualizing K-Means Clustering. Available from: <a href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/">www.naftaliharris.com/blog/visualizing-k-means-clustering/</a> [Accessed 10 May 2024]</p>
 <p id="harrison">Harrison, M. (2019) <i>Machine Learning Pocket Reference</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
+<p id="khotijah">Khotijah, S. (2000) K-Means Clustering of Iris Dataset. Available from: <a href="https://www.kaggle.com/code/khotijahs1/k-means-clustering-of-iris-dataset">www.kaggle.com/code/khotijahs1/k-means-clustering-of-iris-dataset</a> [Accessed 11 May 2024]</p>
+<p id="kubat">Kubat, M. (2021) <i>An Introduction to Machine Learning</i>. 3rd ed. Cham: Springer</p>
 <p id="moorei">Moore, I. (2021) Intro to Exploratory data analysis (EDA) in Python. Available from: <a href="https://www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook">www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook</a> [Accessed 26 April 2024]</p>
 <p id="nield">Nield, T. (2022) <i>Essential Math for Data Science</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="scavetta">Scavetta, R.J. &amp; Angelov, B (2021) <i>Python and R for the Modern Data Scientist</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
