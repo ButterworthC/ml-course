@@ -107,15 +107,15 @@ The K-Clustering animations (<a href="#shabalin">Shabalin, N.D.</a>, <a href="#h
 <p>
 I created a notebook called
 <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Unit05%20Jaccard%20coefficients.ipynb">Unit05 Jaccard coefficients.iypnb</a>
-but did not find the hints useful, nor indeed ChatGPT, so I found an article online (<a href="#geeks2023">Geeks for Geeks, 2023</a>) which explained
+but did not find the hints useful, nor indeed ChatGPT, so I found an article online (<a href="#geeks2023a">Geeks for Geeks, 2023a</a>) which explained
 that the Jaccard coefficient (a.k.a. Jaccard similarity or Jaccard index) is the size of the intersection of two sets divided by the size of their union.
 The Python code for this follows on with ease because of the intersection() and union() set methods, and of course the len() function.
-It doesn't work yet!!!
+[It doesn't work yet!!!]
 </p>
 
 <h3>Unit 6: Clustering with Python</h3>
 <p>
-I found that the required reading was not relevant to this unit, so I read Chapter 15 instead and found out a lot about k-means clustering 
+I found that the required reading, Chapter 6, was not relevant to this unit, so I read Chapter 15 instead and found out a lot about k-means clustering 
 (<a href="#kubat">Kubat, 2021</a>: 297-310) although the required textbook does not mention Jaccard in the index.
 </p>
 <p>
@@ -143,10 +143,49 @@ I had a lot of help from ChatGPT but when it came to plotting the centroids all 
 
 <h3>Unit 7: Introduction to Artificial Neural Networks (ANNs)</h3>
 <p>
-
+This time, Chapter 6 was relevant, being titled "Artificial Neural Networks" (<a href="#kubat">Kubat, 2021</a>: 117-141).
+I was already familiar with the sigmoid function and its shape but it would have been nice to see the shape of its first derivative, 
+and perhaps its derivation. I found both of these online; the shape is a bell, which could have been deduced from the 
+accelerating/inflection/decelerating shape of sigma (<a href="#geeks2023a">Geeks for Geeks, 2023a</a>).
+</p>
+<p>
+The two key sentences in this chapter are "while there is no communication between neurons of the same layer, adjacent layers are fully interconnected.
+Importantly, each neuron-to-neuron link is associated with a <i>weight</i>" (<a href="#kubat">Kubat, 2021</a>: 119). 
+These concepts are illustrated with diagrams and there is an example with input and output values.
+Although the text does not do a very good job of explaining "target vector," 
+the explanation of MSE (Mean Squared Error) as a measure of "wrongness" is useful, and is made clear by reference to the example 
+(<a href="#kubat">Kubat, 2021</a>: 122).
+</p>
+<p>
+Backpropagation is something I've heard about but it turns out that what gets propagated backwards is the error.  
+This is used to adjust the weightings of the connections between the layers of neurons until the MSE is minimised.
+One problem with this chapter is that it does not explain what the superscripts mean until page 133, 
+whereas I think page 117 would have been a better place - it would have saved me a lot of guess-work.
+I was able to follow the explanations of ANN in this chapter until it introduced radial basis function networks on page 137.
+I think I will have to come back to this after the module is finished.
+</p>
+<p>
+The lecturecast described the same concepts, with a better introduction to the biological basis of neural networks.
+We were directed to examine three notebooks (<a href="#unit7">University of Essex, 2024c</a>) containing examples of perceptrons.
+</p>
+<p>
+In Ex 1 I was surprised to find that images can be put into notebook cells.
+Also new to me, I think, was the fact that the type of an array declared as np.array is numpy.ndarray.
+The simple perceptron example was quite easy to follow.
+</p>
+<p>
+Ex 2 was also easy to follow, and the key to it seems to be:<br>
+<span style="font-family: Courier, monospace;">weights[j] = weights[j] + (learning_rate * inputs[i][j] * error)</span>
+</p>
+<p>
+Ex 3 illustrated very well the modification of the weight arrays. Many cells were used to demonstrate the principles, 
+but in the last few cells the process was started again from scratch in a more succinct way.
 </p>
 
+<h3>Unit 8: Training an Artificial Neural Network</h3>
+<p>
 
+</p>
 
 
 <a href=""></a><br>
@@ -156,7 +195,8 @@ I had a lot of help from ChatGPT but when it came to plotting the centroids all 
 <h3 id="refs">References</h3>
 
 <p id="bruce">Bruce P, Bruce, A. &amp; Gedeck, P. (2019) <i>Practical Statistics for Data Scientists</i>. 2nd ed. Sebastopol, CA: O'Reilly Media Inc.</p>
-<p id="geeks2023">Geeks for Geeks (2023) How to Calculate Jaccard Similarity in Python. Available from: <a href="https://www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/">www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/</a> [Accessed 10 May 2024]</p>
+<p id="geeks2023a">Geeks for Geeks (2023a) How to Calculate Jaccard Similarity in Python. Available from: <a href="https://www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/">www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/</a> [Accessed 10 May 2024]</p>
+<p id="geeks2023b">Geeks for Geeks (2023b) Derivative of the Sigmoid Function. Available from: <a href="https://www.geeksforgeeks.org/derivative-of-the-sigmoid-function/">www.geeksforgeeks.org/derivative-of-the-sigmoid-function</a> [Accessed 12 May 2024]</p>
 <p id="geeks2024">Geeks for Geeks (2024) Wine Dataset in Sklearn. Available from <a href="https://www.geeksforgeeks.org/wine-dataset/">www.geeksforgeeks.org/wine-dataset/</a> [Accessed 11 May 2024]</p>
 <p id="harris">Harris, N. (2014) Visualizing K-Means Clustering. Available from: <a href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/">www.naftaliharris.com/blog/visualizing-k-means-clustering/</a> [Accessed 10 May 2024]</p>
 <p id="harrison">Harrison, M. (2019) <i>Machine Learning Pocket Reference</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
@@ -169,5 +209,6 @@ I had a lot of help from ChatGPT but when it came to plotting the centroids all 
 <p id="shabalin">Shabalin, A.A. (N.D.) K-means clustering. Available from: <a href="http://shabal.in/visuals/kmeans/2.html">shabal.in/visuals/kmeans/2.html</a> [Accessed 10 May 2024]</p>
 <p id="unit3">University of Essex. (2024a) Unit 3 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958879">www.my-course.co.uk/mod/page/view.php?id=958879</a> [Accessed 8 May 2024]</p>
 <p id="unit4">University of Essex. (2024b) Unit 4 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818">www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818</a> [Accessed 9 May 2024]</p>
+<p id="unit7">University of Essex. (2024c) Unit 7 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958908">www.my-course.co.uk/mod/page/view.php?id=958908</a> [Accessed 13 May 2024]</p>
 </body>
 </html>
