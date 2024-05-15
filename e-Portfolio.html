@@ -196,10 +196,10 @@ I read the article about AI writers (<a href="#hutson">Hutson, 2021</a>), which 
 </p>
 <p><b>Initial Post on the benefits and risks of AI writers</b></p>
 <p>The usefulness of GPT is described in the prescribed article, including its ability to respond to prompts asking for creative output 
-such as “songs, stories, press releases, guitar tabs, interviews, essays, technical manuals” (<a href="#hutson">Hutson, 2021</a>).
-GPT’s usefulness as an aid to writing is discussed, and its ability to answer questions on general knowledge and solve mathematical problems.
+such as "songs, stories, press releases, guitar tabs, interviews, essays, technical manuals" (<a href="#hutson">Hutson, 2021</a>).
+GPT's usefulness as an aid to writing is discussed, and its ability to answer questions on general knowledge and solve mathematical problems.
 GPT has the ability to translate, understand documents and identify at-risk people on social media.
-I myself have made use of GPT’s ability to churn out screenfuls of code in different programming languages, and the article mentions this.</p>
+I myself have made use of GPT's ability to churn out screenfuls of code in different programming languages, and the article mentions this.</p>
 <p>Unfortunately, the produced computer code is usually buggy, which is not a problem if the compiler catches the bugs, 
 but runtime errors can have disastrous effects (in my experience).
 GPT does not really understand the text it reads, it only pretends to.
@@ -209,8 +209,65 @@ There is concern that the vast amounts of text and other data ingested by these 
 is turning human echo chambers into global, pervasive AI echo chambers (<a href="#bender">Bender et al., 2021</a>).</p>
 <p>In my view, the solution to the echo chamber (or stochastic parrots) problem is going to require widespread but careful control of the 
 data ingestion process such that the outputs from AI systems are not used as the inputs to other (or the same) AI systems.
-This could be helped by those very same systems, in fact, I don’t see how it could be accomplished otherwise.</p>
+This could be helped by those very same systems, in fact, I don't see how it could be accomplished otherwise.</p>
 <p>(I have moved the references to Bender, Butterworth and Hutson to the list below.)</p>
+<p><b>Unit 8 e-Portfolio Activity: Gradient Cost Function</b></p>
+<p>
+The prescribed paper for this activity introduces methods of finding minima in the cost functions of weights (<a href="#mayo">Mayo, 2017</a>).
+After explaining that we want to go down the slope to find the minimum cost, it links to a thread on Stack Exchange in which 
+an original ("initial" in Essex-speak) poster asks how to select a learning rate for SGD (stochastic gradient descent) and the responses
+introduce various training algorithms (<a href="#se2014">Stack Exchange, 2014</a>). 
+These include Adagrad, which requires a learning rate to be set (<a href="#duchi">Duchi et al, 2011</a>), Adadelta, which doesn't (<a href="#zeiler">Zeiler, 2012</a>),
+and one which is growing in use, Adam (<a href="#kingma">Kingma &amp; Ba, 2015</a>).
+</p>
+<p>
+The notebook for the unit starts with an illustration of the problem of a learning rate that is too high and jumps over the minimum,
+and an illustration of a learning rate that shrinks as it approaches a minimum (based on the reducing gradient) so that it lands in
+the minimum. A function, gradient_descent(), is defined, taking an array, x, of inputs and an array, y, of outputs, as parameters, 
+outputting a slope, an intercept and a cost per iteration. 
+There is an example run of 100 iterations, with a value for the learning rate of 0.8, 
+and this produces values for gradient (m), intercept (b) and cost.
+I varied the learning rate with the iterations fixed at 100, and then varied the number of iterations with the learning rate fixed at 0.8,
+and was going to show the results in a table, but on most runs the results converged at infinity, so I think there might have been a problem.
+<!--  and the results are shown below:
+</p>
+<table>
+<tr>
+  <th style="text-align: left;">iterations&nbsp;&nbsp;</th>
+  <th style="text-align: left;">learning rate&nbsp;&nbsp;</th>
+  <th style="text-align: left;">m&nbsp;&nbsp;</th>
+  <th style="text-align: left;">b&nbsp;&nbsp;</th>
+  <th style="text-align: left;">cost&nbsp;&nbsp;</th>
+</tr>
+<tr><td>100</td><td>0</td><td>0</td><td>0</td><td>89 (final values same as initial values)</td></tr>
+<tr><td>100</td><td>0.01</td><td>2.37&nbsp;&nbsp;</td><td>0.74</td><td>1.65</td></tr>
+<tr><td>100</td><td>0.1</td><td>2.45&nbsp;&nbsp;</td><td>1.38&nbsp;&nbsp;</td><td>0.480&nbsp;&nbsp;</td></tr>
+<tr><td>100</td><td>0.4</td><td>2.16</td><td>2.42</td><td>0.063</td></tr>
+<tr><td>100</td><td>0.8</td><td>2.04</td><td>2.85</td><td>0.004</td></tr>
+<tr><td>100</td><td>1</td><td>&infin;</td><td>&infin;</td><td>&infin;</td></tr>
+<tr><td>20</td><td>0.8</td><td>-&infin;</td><td>-&infin;</td><td>&infin;</td></tr>
+<tr><td>50</td><td>0.8</td><td>-&infin;</td><td>-&infin;</td><td>&infin;</td></tr>
+<tr><td>100</td><td>0.8</td><td>2.04</td><td>2.85</td><td>0.004</td></tr>
+<tr><td>200</td><td>0.8</td><td></td><td></td><td></td></tr>
+<tr><td>1,000</td><td>0.8</td><td></td><td></td><td></td></tr>
+</table>
+-->
+</p>
+<p>
+When I accessed the paper about 10 Business Applications of Neural Networks from the Required Reading page, 
+I found it was not written by a P. Mach but by a Michal Pruciak (<a href="#pruciak">Pruciak, 2021</a>).
+His use of language is intriguing:
+"Are you interested in exploring exceptional instances of neural network applications within the business realm? 
+If so, <b>delve</b> deeper into this article."
+Uses of ANNs mentioned include anomaly detection (fraud), financial forecasting, marketing, route planning, and self-driving cars.
+</p>
+
+<h3>Unit 9: Introduction to Convolutional Neural Networks (CNNs)</h3>
+<p>
+
+</p>
+
+
 
 
 
@@ -220,9 +277,10 @@ This could be helped by those very same systems, in fact, I don’t see how it cou
 
 <h3 id="refs">References</h3>
 
-<p id="bender">Bender, E.M. et al. (2021) On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? FAccT '21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency. 610–623. DOI: <a href="https://doi.org/10.1145/3442188.3445922">doi.org/10.1145/3442188.3445922</a></p>
+<p id="bender">Bender, E.M. et al. (2021) On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? FAccT '21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency. 610-623. DOI: <a href="https://doi.org/10.1145/3442188.3445922">doi.org/10.1145/3442188.3445922</a></p>
 <p id="bruce">Bruce P, Bruce, A. &amp; Gedeck, P. (2019) <i>Practical Statistics for Data Scientists</i>. 2nd ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="butterworth">Butterworth, C.J. (2024) Initial Post on Industry 4.0. Available from: <a href="https://www.my-course.co.uk/mod/forum/discuss.php?d=217349">www.my-course.co.uk/mod/forum/discuss.php?d=217349</a> [Accessed 14 May 2024]</p>
+<p id="duchi">Duchi, J., et al. (2011) Adaptive Subgradient Methods for Online Learning and Stochastic Optimization. <i>Journal of Machine Learning Research</i> 12(2011): 2121-2159</p>
 <p id="geeks2023a">Geeks for Geeks (2023a) How to Calculate Jaccard Similarity in Python. Available from: <a href="https://www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/">www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/</a> [Accessed 10 May 2024]</p>
 <p id="geeks2023b">Geeks for Geeks (2023b) Derivative of the Sigmoid Function. Available from: <a href="https://www.geeksforgeeks.org/derivative-of-the-sigmoid-function/">www.geeksforgeeks.org/derivative-of-the-sigmoid-function</a> [Accessed 12 May 2024]</p>
 <p id="geeks2024">Geeks for Geeks (2024) Wine Dataset in Sklearn. Available from <a href="https://www.geeksforgeeks.org/wine-dataset/">www.geeksforgeeks.org/wine-dataset/</a> [Accessed 11 May 2024]</p>
@@ -230,16 +288,20 @@ This could be helped by those very same systems, in fact, I don’t see how it cou
 <p id="harrison">Harrison, M. (2019) <i>Machine Learning Pocket Reference</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="hutson">Hutson, M. (2021) Robo-writers: the rise and risks of language-generating AI. <i>Nature</i> (591): 22-25. DOI: <a href="https://doi.org/10.1038/d41586-021-00530-0">doi.org/10.1038/d41586-021-00530-0</a></p>
 <p id="khotijah">Khotijah, S. (2000) K-Means Clustering of Iris Dataset. Available from: <a href="https://www.kaggle.com/code/khotijahs1/k-means-clustering-of-iris-dataset">www.kaggle.com/code/khotijahs1/k-means-clustering-of-iris-dataset</a> [Accessed 11 May 2024]</p>
+<p id="kingma">Kingma, D.P. &amp; Ba, J.L. (2015) Adam: A Method for Stochastic Optimization. Available from: <a href="https://arxiv.org/pdf/1412.6980">arxiv.org/pdf/1412.6980</a> [Accessed 15 May 2024]</p>
 <p id="kubat">Kubat, M. (2021) <i>An Introduction to Machine Learning</i>. 3rd ed. Cham: Springer</p>
-<p id="moorei">Moore, I. (2021) Intro to Exploratory data analysis (EDA) in Python. Available from: <a href="https://www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook">www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook</a> [Accessed 26 April 2024]</p>
+<p id="mayo">Mayo, M. (2017) Neural Network Foundations, Explained: Updating Weights with Gradient Descent &amp; Backpropagation. Available from: <a href="https://www.kdnuggets.com/2017/10/neural-network-foundations-explained-gradient-descent.html">www.kdnuggets.com/2017/10/neural-network-foundations-explained-gradient-descent.html</a> [Accessed 14 May 2024]</p>
+<p id="moorei">Moore, I. (2021) Intro to Exploratory Data Analysis (EDA) in Python. Available from: <a href="https://www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook">www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook</a> [Accessed 26 April 2024]</p>
 <p id="nield">Nield, T. (2022) <i>Essential Math for Data Science</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
+<p id="pruciak">Pruciak, M. (2021) 10 Business Applications of Neural Network (With Examples!). Available from: <a href="https://www.ideamotive.co/blog/business-applications-of-neural-network">www.ideamotive.co/blog/business-applications-of-neural-network</a> [Accessed 15 May 2024]</p>
 <p id="scavetta">Scavetta, R.J. &amp; Angelov, B (2021) <i>Python and R for the Modern Data Scientist</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="schwab">Schwab, K. &amp; Zahid, S. (2020) The Future of Jobs. Available from: <a href="https://www3.weforum.org/docs/WEF_Future_of_Jobs_2020.pdf">www3.weforum.org/docs/WEF_Future_of_Jobs_2020.pdf</a> [Accessed 12 March 2024]</p>
 <p id="shabalin">Shabalin, A.A. (N.D.) K-means clustering. Available from: <a href="http://shabal.in/visuals/kmeans/2.html">shabal.in/visuals/kmeans/2.html</a> [Accessed 10 May 2024]</p>
+<p id="se2014">Stack Exchange (2014) Choosing a learning rate. Available from <a href="https://datascience.stackexchange.com/questions/410/choosing-a-learning-rate">datascience.stackexchange.com/questions/410/choosing-a-learning-rate</a> [Accessed 15 May 2024]</p>
 <p id="unit3">University of Essex. (2024a) Unit 3 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958879">www.my-course.co.uk/mod/page/view.php?id=958879</a> [Accessed 8 May 2024]</p>
 <p id="unit4">University of Essex. (2024b) Unit 4 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818">www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818</a> [Accessed 9 May 2024]</p>
 <p id="unit7">University of Essex. (2024c) Unit 7 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958908">www.my-course.co.uk/mod/page/view.php?id=958908</a> [Accessed 13 May 2024]</p>
-
+<p id="zeiler">Zeiler, M.D. (2012) Adadelta: An Adaptive Learning Rate Method. Available from: <a href="https://arxiv.org/pdf/1212.5701v1">arxiv.org/pdf/1212.5701v1</a> [Accessed 15 May 2024]</p>
 
 
 </body>
