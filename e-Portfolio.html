@@ -277,6 +277,7 @@ teaching me a lot about kernels (filters), the "degree of fit" formula, strides 
 varieties of pooling such as max-pooling and ave-pooling, the use of ReLU and LReLU functions in CNN, the loss function formula,
 dimensionality, tensors, and transfer learning (<a href="#kubat">Kubat, 2021</a>: 327-350).
 </p>
+<p><b>Unit 9 e-Portfolio Activity - CNN Model Activity</b></p>
 <p>
 The BBC's Technology of Business editor wrote an article on "the ethical dilemmas posed by FR" (<a href="#wall">Wall, 2019</a>), in which he
 balances the advantages, such as saving many lives by recognizing a terrorist, against the disadvantages, such as the possibility of
@@ -286,6 +287,33 @@ He mentions a University of Essex study (five years ago) into the use of FR by t
 FR usually led to mistaken identity (<a href="#guardian2019">Guardian, 2019</a>).
 After briefly discussing FR's emergence in military situations, Wall concludes: "FR tech remains under suspicion and under scrutiny."
 </p>
+<p>
+The notebook, Ex1 Convolutional Neural Networks (CNN) - Object Recognition, would not run until I ran the following at the start:
+<pre>!pip install tensorflow</pre>
+and thereafter it was fine all the way to the penultimate cell, where it refused to run:
+<pre>model.predict_classes(my_image.reshape(1,32,32,3))</pre>
+and I had to consult with ChatGPT4 to find out that the predict_classes method had been removed from TensorFlow 2.x.<br>
+Fortunately this replacement code was provided:<br>
+<pre>
+# Ensure the image is reshaped to the correct dimensions: (1, 32, 32, 3)
+reshaped_image = my_image.reshape(1, 32, 32, 3)
+
+# Use the `predict` method to get the probabilities
+predictions = model.predict(reshaped_image)
+
+# Get the index of the class with the highest probability
+predicted_class = np.argmax(predictions, axis=1)
+</pre>
+The notebook did not need to load image files from disk as they were included as a set in the cifar10 dataset of the datasets module 
+of the keras library. This comprises ten categories of 6,000 32x32 pixel colour images, these being:<br>
+<pre>
+['airplane', 'automobile','bird','cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+</pre>
+</p>
+
+
+
+
 
 
 
