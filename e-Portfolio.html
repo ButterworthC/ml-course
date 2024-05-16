@@ -3,7 +3,7 @@
 <title>e-Portfolio for ML course 2024</title>
 </head>
 
-<body>
+<body style="background-color: ffffbb; margin-left: 50px; margin-right: 50px;">
 <h1>e-Portfolio for ML course 2024</h1>
 <h2>Chris Butterworth</h2>
 <p>
@@ -74,24 +74,24 @@ The value of r-squared given in this example is over 0.94, indicating a strong p
 
 <h3>Collaborative Discussion 1: The 4th Industrial Revolution</h3>
 <p>
-I began by quoting a German paper which is credited with introducing the phrase “Industry 4.0” in 2013.
-This was described as a sort of matrix consisting of robotic production line machines (“Cyber-Physical Systems”) 
+I began by quoting a German paper which is credited with introducing the phrase "Industry 4.0" in 2013.
+This was described as a sort of matrix consisting of robotic production line machines ("Cyber-Physical Systems") 
 connected to a matrix of controllers, sensors, data in the cloud, various AI systems and even people, 
 who become part of the internet of things (<a href="#kagermann">Kagermann et al., 2013</a>).
-Citing another paper from the 2010’s (<a href="#krenkel">Krenkel et al., 2016</a>), 
+Citing another paper from the 2010's (<a href="#krenkel">Krenkel et al., 2016</a>), 
 I painted a picture of a much more efficient manufacturing base.  
 My first respondent (<a href="#mutebe">Mutebe, 2024</a>) pointed out that my description of Industry 4.0 was 
 similar to that of a recent paper on the role of ChatGPT in Industry 4.0 (<a href="#javaid">Javaid et al., 2023</a>).
 </p><p>
 I mentioned my prior involvement in the 3D metal printing industry, and my second respondent (<a href="#sumana">Solar Sumana, 2024</a>) 
-commented on how this gives “the average consumer” access to custom products.
+commented on how this gives "the average consumer" access to custom products.
 </p><p>
 I wrote a paragraph about the jobs at risk from Industry 4.0 and those likely to boom because of it, 
 and for this I drew on <a href="#schwab">Schwab &amp; Zahid (2020)</a>.
 This was expanded upon by <a href="#mutebe">Mutebe (2024)</a>, citing <a href="#rotatori">Rotatori et al. (2021)</a>, 
-who was worried about “potential job losses due to automation and increased productivity.”
+who was worried about "potential job losses due to automation and increased productivity."
 </p><p>
-My “incident” was Microsoft Tay, the chatbot that became racist (<a href="#kraft">Kraft, 2016</a>) and I was given 
+My "incident" was Microsoft Tay, the chatbot that became racist (<a href="#kraft">Kraft, 2016</a>) and I was given 
 another similar example (<a href="#sumana">Solar Sumana, 2024</a>) about a chatbot called Tessa, 
 which was supposed to be giving dietary advice to people but ended up giving harmful suggestions 
 (<a href="#aratani">Aratani, 2023</a>).
@@ -205,8 +205,8 @@ Also new to me, I think, was the fact that the type of an array declared as np.a
 The simple perceptron example was quite easy to follow.
 </p>
 <p>
-Ex 2 was also easy to follow, and the key to it seems to be:<br>
-<span style="font-family: Courier, monospace;">weights[j] = weights[j] + (learning_rate * inputs[i][j] * error)</span>
+Ex 2 was also easy to follow, and the key to it seems to be:
+<pre>weights[j] = weights[j] + (learning_rate * inputs[i][j] * error)</pre>
 </p>
 <p>
 Ex 3 illustrated very well the modification of the weight arrays. Many cells were used to demonstrate the principles, 
@@ -225,23 +225,6 @@ which seemed a bit off-topic for this unit.</p>
 <p>
 I read the article about AI writers (<a href="#hutson">Hutson, 2021</a>), which required the use of my library account, and posted the following:
 </p>
-<p><b>Initial Post on the benefits and risks of AI writers</b></p>
-<p>The usefulness of GPT is described in the prescribed article, including its ability to respond to prompts asking for creative output 
-such as "songs, stories, press releases, guitar tabs, interviews, essays, technical manuals" (<a href="#hutson">Hutson, 2021</a>).
-GPT's usefulness as an aid to writing is discussed, and its ability to answer questions on general knowledge and solve mathematical problems.
-GPT has the ability to translate, understand documents and identify at-risk people on social media.
-I myself have made use of GPT's ability to churn out screenfuls of code in different programming languages, and the article mentions this.</p>
-<p>Unfortunately, the produced computer code is usually buggy, which is not a problem if the compiler catches the bugs, 
-but runtime errors can have disastrous effects (in my experience).
-GPT does not really understand the text it reads, it only pretends to.
-There have been instances of AI writers spouting far-out opinions, as I described in my initial post on Industry 4.0 and the failure of an 
-information system (<a href="#butterworth">Butterworth, 2024</a>).
-There is concern that the vast amounts of text and other data ingested by these generative AI systems is not being evaluated critically and 
-is turning human echo chambers into global, pervasive AI echo chambers (<a href="#bender">Bender et al., 2021</a>).</p>
-<p>In my view, the solution to the echo chamber (or stochastic parrots) problem is going to require widespread but careful control of the 
-data ingestion process such that the outputs from AI systems are not used as the inputs to other (or the same) AI systems.
-This could be helped by those very same systems, in fact, I don't see how it could be accomplished otherwise.</p>
-<p>(I have moved the references to Bender, Butterworth and Hutson to the list below.)</p>
 <p><b>Unit 8 e-Portfolio Activity: Gradient Cost Function</b></p>
 <p>
 The prescribed paper for this activity introduces methods of finding minima in the cost functions of weights (<a href="#mayo">Mayo, 2017</a>).
@@ -293,6 +276,24 @@ If so, <b>delve</b> deeper into this article."
 Uses of ANNs mentioned include anomaly detection (fraud), financial forecasting, marketing, route planning, and self-driving cars.
 </p>
 
+<h3>Collaborative Discussion 2: The benefits and risks of AI writers</h3>
+<p>The usefulness of GPT is described in the prescribed article, including its ability to respond to prompts asking for creative output 
+such as "songs, stories, press releases, guitar tabs, interviews, essays, technical manuals" (<a href="#hutson">Hutson, 2021</a>).
+GPT's usefulness as an aid to writing is discussed, and its ability to answer questions on general knowledge and solve mathematical problems.
+GPT has the ability to translate, understand documents and identify at-risk people on social media.
+I myself have made use of GPT's ability to churn out screenfuls of code in different programming languages, and the article mentions this.</p>
+<p>Unfortunately, the produced computer code is usually buggy, which is not a problem if the compiler catches the bugs, 
+but runtime errors can have disastrous effects (in my experience).
+GPT does not really understand the text it reads, it only pretends to.
+There have been instances of AI writers spouting far-out opinions, as I described in my initial post on Industry 4.0 and the failure of an 
+information system (<a href="#butterworth">Butterworth, 2024</a>).
+There is concern that the vast amounts of text and other data ingested by these generative AI systems is not being evaluated critically and 
+is turning human echo chambers into global, pervasive AI echo chambers (<a href="#bender">Bender et al., 2021</a>).</p>
+<p>In my view, the solution to the echo chamber (or stochastic parrots) problem is going to require widespread but careful control of the 
+data ingestion process such that the outputs from AI systems are not used as the inputs to other (or the same) AI systems.
+This could be helped by those very same systems, in fact, I don't see how it could be accomplished otherwise.</p>
+<p>(I have moved the references to Bender, Butterworth and Hutson to the list below.)</p>
+
 <h3>Unit 9: Introduction to Convolutional Neural Networks (CNNs)</h3>
 <p>
 This unit introduces the type of neural networks that enable computer vision.
@@ -341,7 +342,7 @@ of the keras library. This comprises ten categories of 6,000 32x32 pixel colour 
 ['airplane', 'automobile','bird','cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 </pre>
 </p>
-
+<p></p>
 
 
 <a href=""></a><br>
