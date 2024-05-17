@@ -124,7 +124,10 @@ This notebook finishes with a non-linear regression involving a custom sigmoid f
 Then I created a notebook to perform the correlation and regression tasks using the population and GDP datasets.
 The end result needs a bit of tweaking because the mean populations do not look right (total world population of 67 billion!).
 However, I managed to clean up a lot of the data, including deduplicating Aruba and sorting the population dataset so I could 
-get both datasets synchronized (I almost got the zip() function to work).  I might come back to this one but for now I've got to move on.
+get both datasets synchronized (I almost got the zip() function to work).
+Eventually I found the world_population dataset on Kaggle, saved it as "Unit04 world_population.csv" and opened it in Excel to have a
+quick look. There are fewer rows and column names need altering but I might be able to do a join on it or a correlation without a join.
+I might come back to this one but for now I've got to move on.
 </p>
 
 <h3>Unit 5: Clustering</h3>
@@ -345,6 +348,8 @@ He mentions a University of Essex study (five years ago) into the use of FR by t
 FR usually led to mistaken identity (<a href="#guardian2019">Guardian, 2019</a>).
 After briefly discussing FR's emergence in military situations, Wall concludes: "FR tech remains under suspicion and under scrutiny."
 </p>
+<p>My own view is that while there are bound to be cases of mistaken identity, these will quickly be cleared up without danger of 
+innocents being punished, although in a more trigger-happy country there are fewer safeguards, no matter what their Bill of Rights says.</p>
 <p>
 The notebook, Ex1 Convolutional Neural Networks (CNN) - Object Recognition, would not run until I ran the following at the start:
 <pre>!pip install tensorflow</pre>
@@ -368,7 +373,11 @@ of the keras library. This comprises ten categories of 6,000 32x32 pixel colour 
 ['airplane', 'automobile','bird','cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 </pre>
 </p>
-<p></p>
+<p>As directed I changed the value in <pre>plt.imshow(x_test[16])</pre> and ended up looking at cats, horses, trucks etc.
+A couple of cells down from there, the line <pre>LABEL_NAMES[y_test[16][0]]</pre> produced the correct classification each time.</p>
+<p>I think I'll be using a lot of the Python in this notebook for the presentation project, so I won't describe it twice. I searched Kaggle
+for notebooks with the same name as the one in Ex 1 so I could make the proper attribution to any lifted code but all I found were lots of
+other notebooks demonstrating the same code with the same dataset, so I'll be crediting "many Kaggle members."</p>
 
 
 <a href=""></a><br>
