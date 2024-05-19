@@ -266,7 +266,7 @@ These include Adagrad, which requires a learning rate to be set (<a href="#duchi
 and one which is growing in use, Adam (<a href="#kingma">Kingma &amp; Ba, 2015</a>).
 </p>
 <p>
-The notebook for the unit starts with an illustration of the problem of a learning rate that is too high and jumps over the minimum,
+The notebook for the unit (<a href="#unit8">University of Essex, 2024d</a>) starts with an illustration of the problem of a learning rate that is too high and jumps over the minimum,
 and an illustration of a learning rate that shrinks as it approaches a minimum (based on the reducing gradient) so that it lands in
 the minimum. A function, gradient_descent(), is defined, taking an array, x, of inputs and an array, y, of outputs, as parameters, 
 outputting a slope, an intercept and a cost per iteration. 
@@ -353,7 +353,7 @@ After briefly discussing FR's emergence in military situations, Wall concludes: 
 <p>My own view is that while there are bound to be cases of mistaken identity, these will quickly be cleared up without danger of 
 innocents being punished, although in a more trigger-happy country there are fewer safeguards, no matter what their Bill of Rights says.</p>
 <p>
-The notebook, Ex1 Convolutional Neural Networks (CNN) - Object Recognition, would not run until I ran the following at the start:
+The notebook, Ex1 Convolutional Neural Networks (CNN) - Object Recognition (<a href="#unit9">University of Essex, 2024e</a>), would not run until I ran the following at the start:
 <pre>!pip install tensorflow</pre>
 and thereafter it was fine all the way to the penultimate cell, where it refused to run:
 <pre>model.predict_classes(my_image.reshape(1,32,32,3))</pre>
@@ -386,38 +386,84 @@ other notebooks demonstrating the same code with the same dataset, so I'll be cr
 lets the user inspect neural network components to see how propagation and backpropagation work (<a href="#wang2021">Wang et al., 2021</a>).
 There is a 3-minute YouTube video that demonstrates how to use the CNN Explainer (<a href="#wang2020">Wang, 2020</a>).
 </p>
-<p>
-I uploaded this image to the site:</p>
-<p align="center">
-<img src="images/Red E-Type.jpg" width="316" height="175" /><br clear="all" />
-&copy;CarsGuide
-</p>
-but unfortunately it was classified as 64% lifeboat and only 30% sports car.
-</p>
+<p>I uploaded this image to the site:</p>
+<p align="center"><img src="images/Red E-Type.jpg" width="316" height="175" /><br clear="all" />&copy;CarsGuide</p>
+<p>but unfortunately it was classified as 64% lifeboat and only 30% sports car.</p>
 <p>However, a blue E-Type:</p>
-<p align="center">
-<img src="images/Blue E-Type.jpg" width="304" height="166" /><br clear="all" />
-&copy;AutoZine
+<p align="center"><img src="images/Blue E-Type.jpg" width="304" height="166" /><br clear="all" />&copy;AutoZine</p>
+<p>was classified correctly (only just) at 29.5% sports car, 27.6% lifeboat, 19% ladybug, 13% koala and 6% school bus.
+Interestingly, the blue Jaguar was still less of a sports car than the red one that was a lifeboat.</p>
+<p>
+On the YouTube page containing the CNN Explainer video there were links to a highly visual video on activation functions, 
+Taylor series and Fourier transforms (<a href="#emergent">Emergent Garden, 2023</a>)
+and a series of videos on neural networks (<a href="#3blue1brown">3Blue1Brown, 2017</a>)
 </p>
-was classified correctly (only just) at 29.5% sports car, 27.6% lifeboat, 19% ladybug, 13% koala and 6% school bus.
-Interestingly, the blue Jaguar was still less of a sports car than the red one.
 
 <h3>Unit 11: Model Selection and Evaluation</h3>
+<p>The reading was about classification in different fields, including medical diagnosis, character recognition, oil-spill recognition, six 
+sleep stages, brain-computer interfaces, and text (<a href="#kubat">Kubat, 2021</a>: 161-178). Chapter 8 seemed appropriate to the unit.</p>
+<p>We were directed to run the Model Performance Measurement notebook (<a href="#unit11">University of Essex, 2024f</a>) with different
+parameters to see how they affected the AUC (Area Under Curve) and R<sup>2</sup> error. It looked to me as if this notebook started with
+the results of machine learning, already scored in terms of true and false positives and negatives and therefore not requiring any data.
+These are fed into the confusion_matrix function of the metrics submodule in the sklearn machine learning package, flattened into a single 
+array and then the variables for tn, fp, fn, and tp extracted from this in a tuple assignment.</p>
+<p>AUC seems to be calculated by the functions auc and roc_auc_score, depending on whether the inputs are arrays of coordinates 
+or labels and predicted scores.
+</p>
+<p>
+I noted the AUC for the cell that scored ROC AUC for breast cancer data, and varied the solver parameter, with the following results:
+<table border="1" cellpadding="5">
+<tr><th>solver</th><th>ROC AUC score</th><th></th></tr>
+<tr><td>lbfgs</td><td>0.9941</td><td>failed to converge</td></tr>
+<tr><td>liblinear</td><td>0.9946</td><td></td></tr>
+<tr><td>newton-cg</td><td>0.9947</td><td></td></tr>
+<tr><td>sag</td><td>0.9506</td><td>max_iter was reached which means the coef_ did not converge</td></tr>
+<tr><td>saga</td><td>0.9384</td><td>max_iter was reached which means the coef_ did not converge</td></tr>
+</table>
+From this, if it means anything at all, liblinear was the right solver, and that was the one already chosen.
+</p>
+<p>
+R<sup>2</sup> is calculated in the last two cells of this notepad, and does not require the cells above to be run first. All that is needed is:
+<pre>
+from sklearn.metrics import r2_score
+y_true = [3, -0.5, 2, 7]
+y_pred = [2.5, 0.0, 2, 8]
+r2_score(y_true, y_pred)
+</pre>
+and this results in a value for r<sup>2</sup> of 0.9486, so I varied the values as follows:
+<table border="1" cellpadding="5">
+<tr><th>y_true</th><th>y_pred</th><th>MAE</th><th>r<sup>2</sup></th><th></th></tr>
+<tr><td>[3, -0.5, 2, 7]</td><td>[2.5, 0.0, 2, 8]</td><td>0.5000</td><td>0.9486</td><td>original values</td></tr>
+<tr><td>[3, -0.5, 2, 7]</td><td>[3, -0.5, 2, 7]</td><td>0.0000</td><td>1.0000</td><td>y_true = y_pred</td></tr>
+<tr><td>[6, -1.0, 4, 14]</td><td>[3, -0.5, 2, 7]</td><td>3.1250</td><td>0.4668</td><td>y_true = 2 * y_pred</td></tr>
+<tr><td>[3, -0.5, 2, 7]</td><td>[6, -1, 4, 14]</td><td>3.125</td><td>-1.1328</td><td>y_pred = 2 * y_true</td></tr>
+<tr><td>[3, -0.5, 2, 7]</td><td>[0, 0, 0, 0]</td><td>3.1250</td><td>-1.1328</td><td></td></tr>
+<tr><td>[3, -0.5, 2, 7]</td><td>[3, 0, 2, 7]</td><td>0.1250</td><td>0.9914</td><td>small difference: r<sup>2</sup> close to 1</td></tr>
+</table>
+The main lesson here seems to be that the closer the true and predicted arrays are, the closer r<sup>2</sup> gets to 1.
+</p>
+
+
+
+<h3>Unit 12: Industry 4.0 and Machine Learning</h3>
 <p>
 
 </p>
+
 
 <a href=""></a><br>
 <a href=""></a><br>
 <a href=""></a><br>
 
 <h3 id="refs">References</h3>
+<p id="3blue1brown">3Blue1Brown (2017) Neural networks. Available from <a href="https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi</a> [Accessed 17 May 2024]</p>
 <p id="aratani">Aratani, L. (2023) US eating disorder helpline takes down AI chatbot over harmful advice. <i>The Guardian</i>. Available from: <a href="https://www.theguardian.com/technology/2023/may/31/eating-disorder-hotline-union-ai-chatbot-harm">www.theguardian.com/technology/2023/may/31/eating-disorder-hotline-union-ai-chatbot-harm</a> [Accessed: 06 April 2024]</p>
 <p id="bender">Bender, E.M. et al. (2021) On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? FAccT '21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency. 610-623. DOI: <a href="https://doi.org/10.1145/3442188.3445922">doi.org/10.1145/3442188.3445922</a></p>
 <p id="bruce">Bruce P, Bruce, A. &amp; Gedeck, P. (2019) <i>Practical Statistics for Data Scientists</i>. 2nd ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="butterworth">Butterworth, C.J. (2024) Initial Post on Industry 4.0. Available from: <a href="https://www.my-course.co.uk/mod/forum/discuss.php?d=217349">www.my-course.co.uk/mod/forum/discuss.php?d=217349</a> [Accessed 14 May 2024]</p>
 <p id="butterworthetal">Butterworth, C.J., Ngugi, J., Narang, A., Bolton, W. (2024) ML Spring '24 Group 1 Project Report. Available from: <a href="docs/ML Spring '24 Group 1 Project Report.pdf">ML Spring '24 Group 1 Project Report.pdf</a> [Accessed 16 May 2024]</p>
 <p id="duchi">Duchi, J., et al. (2011) Adaptive Subgradient Methods for Online Learning and Stochastic Optimization. <i>Journal of Machine Learning Research</i> 12(2011): 2121-2159</p>
+<p id="emergent">Emergent Garden (2023) Watching Neural Networks Learn. Available from: <a href="https://www.youtube.com/watch?v=TkwXa7Cvfr8">www.youtube.com/watch?v=TkwXa7Cvfr8</a> [Accessed 18 May 2024]</p>
 <p id="geeks2023a">Geeks for Geeks (2023a) How to Calculate Jaccard Similarity in Python. Available from: <a href="https://www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/">www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/</a> [Accessed 10 May 2024]</p>
 <p id="geeks2023b">Geeks for Geeks (2023b) Derivative of the Sigmoid Function. Available from: <a href="https://www.geeksforgeeks.org/derivative-of-the-sigmoid-function/">www.geeksforgeeks.org/derivative-of-the-sigmoid-function</a> [Accessed 12 May 2024]</p>
 <p id="geeks2024">Geeks for Geeks (2024) Wine Dataset in Sklearn. Available from <a href="https://www.geeksforgeeks.org/wine-dataset/">www.geeksforgeeks.org/wine-dataset/</a> [Accessed 11 May 2024]</p>
@@ -446,6 +492,9 @@ Interestingly, the blue Jaguar was still less of a sports car than the red one.
 <p id="unit3">University of Essex. (2024a) Unit 3 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958879">www.my-course.co.uk/mod/page/view.php?id=958879</a> [Accessed 8 May 2024]</p>
 <p id="unit4">University of Essex. (2024b) Unit 4 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818">www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818</a> [Accessed 9 May 2024]</p>
 <p id="unit7">University of Essex. (2024c) Unit 7 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958908">www.my-course.co.uk/mod/page/view.php?id=958908</a> [Accessed 13 May 2024]</p>
+<p id="unit8">University of Essex. (2024d) Unit 8 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958917">www.my-course.co.uk/mod/page/view.php?id=958917</a> [Accessed 15 May 2024]</p>
+<p id="unit9">University of Essex. (2024e) Unit 9 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958925">www.my-course.co.uk/mod/page/view.php?id=958925</a> [Accessed 16 May 2024]</p>
+<p id="unit11">University of Essex. (2024f) Unit 11 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958936">www.my-course.co.uk/mod/page/view.php?id=958936</a> [Accessed 19 May 2024]</p>
 <p id="wall">Wall, M. (2019) Biased and wrong? Facial recognition tech in the dock. Available from: <a href="https://www.bbc.co.uk/news/business-48842750">www.bbc.co.uk/news/business-48842750</a> [Accessed 15 May 2024]</p>
 <p id="wang2020">Wang, Z.J. (2020) Demo Video "CNN Explainer: Learning Convolutional Neural Networks with Interactive Visualization". Available from <a href="https://www.youtube.com/watch?v=HnWIHWFbuUQ">www.youtube.com/watch?v=HnWIHWFbuUQ</a> [Accessed 17 May 2024]</p>
 <p id="wang2021">Wang, Z.J. et al. (2021) CNN Explainer: Learning Convolutional Neural Networks with Interactive Visualization. <i>IEEE Transactions on Visualization and Computer Graphics.</i> 27(2):1396-1406. DOI: <a href="https://doi.org/10.1109/tvcg.2020.3030418">10.1109/TVCG.2020.3030418</a></p>
