@@ -9,351 +9,236 @@
 <p><a href="about-me.html">About me</a></p>
 <p><a href="prep.html">Preparation for Machine Learning module</a></p>
 </p>
-<p>
-The GitHub-hosted version of this page is at <a href="https://butterworthc.github.io/ml-course/e-Portfolio.html">butterworthc.github.io/ml-course/e-Portfolio.html</a>
-</p>
-<p>
-The notebooks and data files are available at <a href="https://github.com/ButterworthC/ml-course">https://github.com/ButterworthC/ml-course</a>
-</p>
+<p>GitHub-hosted version: <a href="https://butterworthc.github.io/ml-course/e-Portfolio.html">butterworthc.github.io/ml-course/e-Portfolio.html</a></p>
+<p>Notebooks and data files: <a href="https://github.com/ButterworthC/ml-course">https://github.com/ButterworthC/ml-course</a></p>
 
 <h3>Unit 1: Introduction to Machine Learning (ML)</h3>
-<p>
-In this unit we were introduced to Schwab &amp; Zahid's paper on the impact of machine learning on the workplace and future levels of employment.
+<p>We were introduced to Schwab &amp; Zahid's paper on the impact of machine learning on the workplace and future levels of employment.
 The lecturecast described the effect of technology in bringing about <i>Industry 4.0</i>,
-a concept described as <i>cyber-physical systems</i> (<a href="#schwab">Schwab &amp; Zahid, 2020</a>).
-Supervised and unsupervised machine learning were mentioned briefly, as were the 4 V's of big data (Volume, Velocity, Variety and Veracity).
-</p>
+described as <i>cyber-physical systems</i> (<a href="#schwab">Schwab &amp; Zahid, 2020</a>).
+Supervised and unsupervised machine learning were mentioned, as were the 4 V's of big data (Volume, Velocity, Variety and Veracity).</p>
 
 <h3>Unit 2: Exploratory Data Analysis</h3>
-<p>Much of this unit involved preparation for the collaborative discussion on Industry 4.0, the upcoming team data analysis project, and the e-Portfolio.
-We were directed to a notebook which demonstrates EDA. Unfortunately I was unable to find this in Google Colab so I found a similar notebook and dataset 
-in Kaggle (<a href="#moorei">Moore, 2021</a>).<br>
-I looked for relationships between the prices of cars and their number of cylinders, horsepower, fuel efficiency etc., and produced scatter plots and a correlation matrix.<br>
-The notebook I created is
+<p>This unit involved preparation for the collaborative discussion on Industry 4.0, the upcoming team data analysis project, and the e-Portfolio.
+We were directed to a notebook which demonstrates EDA. I was unable to find this in Google Colab so I found a similar notebook and dataset 
+in Kaggle (<a href="#moorei">Moore, 2021</a>).</p>
+<p>I looked for relationships between the prices of cars and their number of cylinders, horsepower, fuel efficiency etc., and produced scatter plots...</p>
+<p><img src="images/Unit2inverse.png" width="283" height="227" /></p>
+<p>and a correlation matrix.</p>
+<p>The notebook I created is
 <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Unit%202%20Kaggle%20EDA.ipynb">Unit 2 Kaggle EDA.ipynb</a>
-and the dataset is <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/data/kaggle_car_data_for_eda.csv">kaggle_car_data_for_eda.csv</a>
-</p>
+and the dataset is <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/data/kaggle_car_data_for_eda.csv">kaggle_car_data_for_eda.csv</a></p>
 
 <h3>Unit 3: Correlation and Regression</h3>
-<p>
-We were directed to look at four notebooks (<a href="#unit3">University of Essex, 2024a</a>) 
-and see how the calculated correlation and regression depend on the supplied data.
-</p>
-<p>
-<b>Ex 1: Covariance and Pearson's correlation between two variables</b><br>
-The first notebook was ready to run and immediately displayed a scatter plot between two sets of random numbers with weightings applied.
+<p>We were directed to four notebooks (<a href="#unit3">University of Essex, 2024a</a>) 
+to see how the calculated correlation and regression depend on the supplied data.</p>
+<p><b>Ex 1: Covariance and Pearson's correlation</b></p>
+<p>The first notebook displayed a scatter plot between two sets of random numbers with weightings applied.
 I quickly discovered that the number (1000) in the randn() function needed to be the same for both sets (of course), but that varying the 
 factors (20, 10) and the offsets (100, 50) changed not only the shape of the plot but also the means and standard deviations for either 
 dataset and the covariance and Pearson's correlation,
-a.k.a. the correlation coefficient (<a href="#nield">Nield, 2022</a>: 171-179).
-</p>
-<p>
-<b>Ex 2: Linear Regression</b><br>
-The scipy library was imported as "stats" but referenced in the calls to the linregress() and pearsonr() methods as "stat" - preventing 
-the notebook from running.
-It occurred to me that this might have been a test to see if we were actually running these notebooks instead of just looking at them.
-Passing arrays of x and y values to the SciPy lingress() method and receiving them as a tuple to variables for slope and intercept
-(discarding the ones for r, p and std_err), the notebook then uses the SciPy pearsonr() method to calculate the correlation, before defining
-its own simple function, based on y = mx + b (or y = mx + c as we say over here),
-for predicting y based on a given x (<a href="#harrison">Harrison, 2019</a>: 191-222).
-</p>
-<p>
-<b>Ex 3: Multiple Linear Regression</b><br>
-This notebook uses the LinearRegression method (<a href="#nield">Nield, 2022</a>: 191) of the sklearn library instead of SciPy.  The regression has two independent variables, weight in kg and engine 
-volume in cm<sup>3</sup>, and one dependent variable, CO2, in units of grams (per what? mile, km, hour? It doesn't say!).  
-The regression object returns an array of two coefficients for the two regressions.
-Its predict() method performs the same task as the custom function in the previous exercise.
-</p>
-<p>
-<b>Ex 4: Polynomial Regression</b><br>
-"A quadratic regression between the response Y and the predictor X would take the form: 
+a.k.a. the correlation coefficient (<a href="#nield">Nield, 2022</a>: 171-179).</p>
+<p><b>Ex 2: Linear Regression</b></p>
+<p>Passing arrays of x and y values to the SciPy lingress() method and receiving them as a tuple to variables for slope and intercept
+(discarding the ones for r, p and std_err), the notebook then uses the SciPy pearsonr() method to calculate the correlation, 
+before defining its own simple function, based on y = mx + b,
+for predicting y based on a given x (<a href="#harrison">Harrison, 2019</a>: 191-222).</p>
+<p><b>Ex 3: Multiple Linear Regression</b></p>
+<p>This uses the LinearRegression method (<a href="#nield">Nield, 2022</a>: 191) of the sklearn library instead of SciPy.  
+The regression has two independent variables, weight in kg and engine volume in cm<sup>3</sup>, 
+and one dependent variable, CO2, in units of grams (per what? mile, km, hour? It doesn't say!).  
+The regression object returns an array of two coefficients for the two regressions:</p>
+<p><img src="images/Unit03Ex3multiple_linear_regression.png" width="379" height="96" /></p>
+Its predict() method performs the same task as the custom function in the previous exercise.</p>
+<p><b>Ex 4: Polynomial Regression</b></p>
+<p>"A quadratic regression between the response Y and the predictor X would take the form: 
 <i>Y = b<sub>0</sub> + b<sub>1</sub>X + b<sub>2</sub>X<sup>2</sup> + e</i>"
 (<a href="#bruce">Bruce et al., 2020</a>: 188-189). 
 The numpy library has a function called polyfit(), which takes arrays containing the x and y coordinates as its first two parameters, 
 and a function called poly1d(), which takes the output from polyfit(), for creating a model based on the data.  
-The value of r-squared given in this example is over 0.94, indicating a strong positive relation.
-</p>
+The value of r-squared given in this example is over 0.94, indicating a strong positive relation.</p>
 
 <h3>Collaborative Discussion 1: The 4th Industrial Revolution</h3>
-<p>
-I began by quoting a German paper which is credited with introducing the phrase "Industry 4.0" in 2013.
+<p>I quoted a German paper credited with introducing the phrase "Industry 4.0" in 2013.
 This was described as a sort of matrix consisting of robotic production line machines ("Cyber-Physical Systems") 
 connected to a matrix of controllers, sensors, data in the cloud, various AI systems and even people, 
 who become part of the internet of things (<a href="#kagermann">Kagermann et al., 2013</a>).
 Citing another paper from the 2010's (<a href="#krenkel">Krenkel et al., 2016</a>), 
 I painted a picture of a much more efficient manufacturing base.  
-My first respondent (<a href="#mutebe">Mutebe, 2024</a>) pointed out that my description of Industry 4.0 was 
-similar to that of a recent paper on the role of ChatGPT in Industry 4.0 (<a href="#javaid">Javaid et al., 2023</a>).
-</p><p>
-I mentioned my prior involvement in the 3D metal printing industry, and my second respondent (<a href="#sumana">Solar Sumana, 2024</a>) 
-commented on how this gives "the average consumer" access to custom products.
-</p><p>
-I wrote a paragraph about the jobs at risk from Industry 4.0 and those likely to boom because of it, 
-and for this I drew on <a href="#schwab">Schwab &amp; Zahid (2020)</a>.
-This was expanded upon by <a href="#mutebe">Mutebe (2024)</a>, citing <a href="#rotatori">Rotatori et al. (2021)</a>, 
-who was worried about "potential job losses due to automation and increased productivity."
-</p><p>
-My "incident" was Microsoft Tay, the chatbot that became racist (<a href="#kraft">Kraft, 2016</a>) and I was given 
+My first respondent (<a href="#mutebe_a">Mutebe, 2024a</a>) pointed out that my description of Industry 4.0 was 
+similar to that of a recent paper on the role of ChatGPT in Industry 4.0 (<a href="#javaid">Javaid et al., 2023</a>).</p>
+<p>I mentioned my prior involvement in the 3D metal printing industry, and my second respondent (<a href="#sumana">Solar Sumana, 2024</a>) 
+commented on how this gives "the average consumer" access to custom products.</p>
+<p>My "incident" was Microsoft Tay, the chatbot that became racist (<a href="#kraft">Kraft, 2016</a>) and I was given 
 another similar example (<a href="#sumana">Solar Sumana, 2024</a>) about a chatbot called Tessa, 
 which was supposed to be giving dietary advice to people but ended up giving harmful suggestions 
-(<a href="#aratani">Aratani, 2023</a>).
-</p><p>
-The effect of Industry 4.0 on manufacturing has been profound, and a short article such as my initial post cannot 
+(<a href="#aratani">Aratani, 2023</a>).</p>
+<p>The effect of Industry 4.0 on manufacturing has been profound, and a short article such as my initial post cannot 
 possibly expound on all its beneficial (or otherwise) effects.
 However, I have tried to give a positive impression of the innovations, with the caveat that things can go wrong 
-if data preparation is not carried out carefully enough.
-</p>
-<p>(I have moved the references to the list below.)</p>
+if data preparation is not carried out carefully enough.</p>
+<p>(References moved below.)</p>
 
 <h3>Unit 4: Linear Regression with Scikit-Learn</h3>
-<p>
-I had a look at the Fuel Consumption notebook (<a href="#unit4">University of Essex, 2024b</a>), 
-which was very similar to the one I found in Kaggle in Unit 2. 
+<p>The Fuel Consumption notebook (<a href="#unit4">University of Essex, 2024b</a>), 
+was very similar to the one I found in Kaggle in Unit 2. 
 The first part included a correlation matrix, which included a redundant column "MODELYEAR" containing lots of NaN values.
 I thought this could have been deleted to reduce the dimensions of the matrix and avoid confusion.
 The seaborn pairplot() method was then used to plot regression matrices, from which the strong relation between 
-fuel consumption and CO2 emissions is immediately apparent, along with the relation between city and highway MPGs, a trivial result.
-In the second part of the notebook, the dataframe is split into training and testing datasets (80/20).
+fuel consumption and CO2 emissions is apparent, along with the relation between city and highway MPGs.
+Later, the dataframe is split into training and testing datasets (80/20).
 Then, the notebook imports the linear_model module from the scikit-learn library (<a href="#scavetta">Scavetta &amp; Angelov, 2021</a>)
 and instantiates the LinearRegression class as regr,
 using its fit() method with one-dimensional arrays of the x and y training data (engine size, CO2 emissions).
 Coefficient and intercept are then given by regr.coeff_ and regr.intercept_.
 Using matplotlib.pyplot, aliased as plt, the regression line is superimposed on the scatter plot.
 The Mean absolute error, Residual sum of squares (MSE), and R2-score (R squared) are calculated.
-This notebook finishes with a non-linear regression involving a custom sigmoid function.
-</p>
-<p>
-Then I created a notebook to perform the correlation and regression tasks using the population and GDP datasets.
-The end result needs a bit of tweaking because the mean populations do not look right (total world population of 67 billion!).
-However, I managed to clean up a lot of the data, including deduplicating Aruba and sorting the population dataset so I could 
-get both datasets synchronized (I almost got the zip() function to work).
+This notebook finishes with a non-linear regression involving a custom sigmoid function.</p>
+<p>I created a notebook to perform the correlation and regression tasks using the population and GDP datasets.
+It needs tweaking because the mean populations do not look right:</p>
+<p><img src="images/Unit04_too_many_people.png" width="556" height="340" /></p>
+<p>However, I managed to clean up a lot of the data, including deduplicating Aruba and sorting the population dataset so I could 
+get both datasets synchronised.
 Eventually I found the world_population dataset on Kaggle, saved it as "Unit04 world_population.csv" and opened it in Excel to have a
-quick look. There are fewer rows and column names need altering but I might be able to do a join on it or a correlation without a join.
-I might come back to this one but for now I've got to move on.
-</p>
+quick look. There are fewer rows, and column names need altering but I might be able to do a join on it or a correlation without a join.
+I might come back to this one but for now I've got to move on.</p>
 
 <h3>Unit 5: Clustering</h3>
-<p>
-I went through the lecturecast and found some new things like SMC and Jaccard coefficient, as well as cohesion and separation, 
-which will be very useful concepts.
-</p>
-<p>
-The K-Clustering animations (<a href="#shabalin">Shabalin, N.D.</a>, <a href="#harris">Harris, 2014</a>) were very helpful in improving my understanding of this iterative process.
-</p>
-<p>
-I created a notebook called
+<p>In the lecturecast were some new things like SMC and Jaccard coefficient, as well as cohesion and separation, 
+which will be useful concepts.</p>
+<p>The K-Clustering animations (<a href="#shabalin">Shabalin, N.D.</a>, <a href="#harris">Harris, 2014</a>) were helpful in 
+improving my understanding of this iterative process.</p>
+<p>I created a notebook called
 <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Unit05%20Jaccard%20coefficients.ipynb">Unit05 Jaccard coefficients.iypnb</a>
 but did not find the hints useful, nor indeed ChatGPT, so I found an article online (<a href="#geeks2023a">Geeks for Geeks, 2023a</a>) which explained
 that the Jaccard coefficient (a.k.a. Jaccard similarity or Jaccard index) is the size of the intersection of two sets divided by the size of their union.
-The Python code for this follows on with ease because of the intersection() and union() set methods, and of course the len() function.
-[It doesn't work yet!!!]
-</p>
+The Python code for this follows on with ease because of the intersection() and union() set methods, and of course the len() function.</p>
+<p><img src="images/Unit05Jaccard.png" width="474" height="285" /></p>
+<p>[It doesn't work yet!!!]</p>
 
 <h3>Unit 6: Clustering with Python</h3>
-<p>
-I found that the required reading, Chapter 6, was not relevant to this unit, so I read Chapter 15 instead and found out a lot about k-means clustering 
-(<a href="#kubat">Kubat, 2021</a>: 297-310) although the required textbook does not mention Jaccard in the index.
-</p>
-<p>
-I ran the k-means demo notebook and kept encountering a warning about a memory leak in Windows, which could be fixed "by setting the environment variable OMP_NUM_THREADS=4." (Python).
-I did this but the warning persisted when I ran the notebook again.  However, the scatter plot of income vs age displayed, although the one of education, age and income did not.
+<p>Chapter 6 was not relevant to this unit, so I read Chapter 15 instead and found out a lot about k-means clustering 
+(<a href="#kubat">Kubat, 2021</a>: 297-310) although the required textbook does not mention Jaccard in the index.</p>
+<p>The k-means demo notebook kept giving a warning about a Windows memory leak, which could be fixed "by setting the environment variable OMP_NUM_THREADS=4." (Python).
+I did this but the warning persisted.  However, the scatter plot of income vs age displayed, although the one of education, age and income did not.
 I saw how the code looped through k values from 1 to 9, plotting the squared errors and producing an elbow at about k=3. 
-The plot for the silhouette coefficient looped from k values of 2 to 9, because there need to be at least 2 clusters because it compares
+The plot for the silhouette coefficient looped from k values of 2 to 9, because there need to be at least 2 clusters as it compares
 the distance between clusters with the size of clusters and gives a value from -1 to 1. 
-"1 indicates tight clusters, and 0 means overlapping clusters" (<a href="#harrison">Harrison, 2019</a>: 277).
-</p>
-<p>
-I created a notebook called
+"1 indicates tight clusters, and 0 means overlapping clusters" (<a href="#harrison">Harrison, 2019</a>: 277).</p>
+<p>I created
 <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Unit06%20K-Means%20clustering%20on%20iris%20data.ipynb">Unit06 K-Means clustering on iris data.ipynb</a>
-and adapted some code for plotting clusters found in a Kaggle notebook (<a href="#khotijah">Khotijah, 2000</a>).
-I was able to produce three distinct clusters and plot them in both 2D and 3D.
-</p>
-<p>
-I found an article on the wine dataset (<a href="#geeks2024">Geeks for Geeks, 2024</a>) and created my own notebook called
+and adapted some code for plotting clusters from a Kaggle notebook (<a href="#khotijah">Khotijah, 2000</a>).
+I produced three distinct clusters and plotted them in both 2D and 3D.</p>
+<p>I found an article on the wine dataset (<a href="#geeks2024">Geeks for Geeks, 2024</a>) and created
 <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Unit06%20K-Means%20clustering%20on%20wine%20data.ipynb">Unit06 K-Means clustering on wine data.ipynb</a>.
 I plotted the first 12 possible combinations of alcohol with the other 12 attributes.
-The first one to show 3 distinct clusters was, of course, the 12th of these: alcohol vs proline.
-I had a lot of help from ChatGPT but when it came to plotting the centroids all I got was a grid with the wrong scales.
-[I'll come back and do the third one, WeatherAUS, if I have time.]
-</p>
+The first to show 3 distinct clusters was the 12th of these: alcohol vs proline:</p>
+<p><img src="images/Unit06_proline.png" width="435" height="370" /></p>
+<p>I had a lot of help from ChatGPT but when it came to plotting the centroids all I got was a grid with the wrong scales.
+[I'll come back and do WeatherAUS, if I have time.]</p>
 
 <h3>Group Project: </h3>
 <p>There were four of us in the group for this project. Most of the Python work (<a href="https://github.com/Ngugi-Joy-Grace/airbnb-business-analysis/blob/main/analysis.ipynb">github.com/Ngugi-Joy-Grace/airbnb-business-analysis/blob/main/analysis.ipynb</a>) was done by one person. 
-She did a very good job of it, and I learned a lot about data pre-processing:
-
+She did a very good job of it, and I learned a lot about data pre-processing:</p>
 <p align = "center">
 <img src="images/Fig 2 - Plot for missing values.png" style="border: none; width: 590px; max-width: 100%; height: 305px;" /><br clear="all" />
-Group Project Fig 2 - Plot for missing values
-</p>
-</p>
+Group Project Fig 2 - Plot for missing values</p>
 <p>The report (<a href="#butterworthetal">Butterworth et al., 2024</a>) concentrated on the geographical information contained in the 
-AirBnB dataset, and it was presented as simply as possible, for example:
+AirBnB dataset, and it was presented as simply as possible, for example:</p>
 <p align = "center">
-<!-- <img src="images/Fig 5 - Distribution of Listings across New York.png" border="0" width="492" height="313" /><br clear="all" /> -->
 <img src="images/Fig 5 - Distribution of Listings across New York.png" style="border: none; width: 492px; max-width: 100%; height: 313px;" /><br clear="all" />
-Group Project Fig 5 - Distribution of Listings across New York
-</p>
+Group Project Fig 5 - Distribution of Listings across New York</p>
 <p>Our conclusion was:</p>
-<p>
-"The analysis of Airbnb listings in New York City reveals diverse offerings and host engagement. 
+<p>"The analysis of Airbnb listings in New York City reveals diverse offerings and host engagement. 
 Brooklyn and Queens cater to tourists through affordable and short-term accommodations, 
 while Manhattan offers a spectrum from budget-friendly to premium, with a tendency toward professional hosting. 
 Growth opportunities abound in the Bronx and Staten Island, where the market is less saturated. 
 Year-round availability in these areas also indicates a possibility for a stable income for hosts and consistent choices for guests. 
-This approach, alongside a diversified property portfolio, could enhance bookings especially in the Bronx and Staten Island's emerging markets."
-</p>
+This approach, alongside a diversified property portfolio, could enhance bookings
+especially in the Bronx and Staten Island's emerging markets."</p>
 
 <h3>Unit 7: Introduction to Artificial Neural Networks (ANNs)</h3>
-<p>
-This time, Chapter 6 was relevant, being titled "Artificial Neural Networks" (<a href="#kubat">Kubat, 2021</a>: 117-141).
+<p>This time, Chapter 6 was relevant, being titled "Artificial Neural Networks" (<a href="#kubat">Kubat, 2021</a>: 117-141).
 I was already familiar with the sigmoid function and its shape but it would have been nice to see the shape of its first derivative, 
 and perhaps its derivation. I found both of these online; the shape is a bell, which could have been deduced from the 
-accelerating/inflection/decelerating shape of sigma (<a href="#geeks2023a">Geeks for Geeks, 2023a</a>).
-</p>
-<p>
-The two key sentences in this chapter are "while there is no communication between neurons of the same layer, adjacent layers are fully interconnected.
+accelerating/inflection/decelerating shape of sigma (<a href="#geeks2023a">Geeks for Geeks, 2023a</a>).</p>
+<p>The two key sentences in this chapter are "while there is no communication between neurons of the same layer, adjacent layers are fully interconnected.
 Importantly, each neuron-to-neuron link is associated with a <i>weight</i>" (<a href="#kubat">Kubat, 2021</a>: 119). 
 These concepts are illustrated with diagrams and there is an example with input and output values.
-Although the text does not do a very good job of explaining "target vector," 
-the explanation of MSE (Mean Squared Error) as a measure of "wrongness" is useful, and is made clear by reference to the example 
-(<a href="#kubat">Kubat, 2021</a>: 122).
-</p>
-<p>
-Backpropagation is something I've heard about but it turns out that what gets propagated backwards is the error.  
-This is used to adjust the weightings of the connections between the layers of neurons until the MSE is minimised.
+The explanation of MSE (Mean Squared Error) as a measure of "wrongness" is useful, and is made clear by reference to the example 
+(<a href="#kubat">Kubat, 2021</a>: 122).</p>
+<p>Backpropagation is used to adjust the weightings of the connections between the layers of neurons until the MSE is minimised.
 One problem with this chapter is that it does not explain what the superscripts mean until page 133, 
-whereas I think page 117 would have been a better place - it would have saved me a lot of guess-work.
-I was able to follow the explanations of ANN in this chapter until it introduced radial basis function networks on page 137.
-I think I will have to come back to this after the module is finished.
-</p>
-<p>
-The lecturecast described the same concepts, with a better introduction to the biological basis of neural networks.
-We were directed to examine three notebooks (<a href="#unit7">University of Essex, 2024c</a>) containing examples of perceptrons.
-</p>
-<p>
-In Ex 1 I was surprised to find that images can be put into notebook cells.
-Also new to me, I think, was the fact that the type of an array declared as np.array is numpy.ndarray.
-The simple perceptron example was quite easy to follow.
-</p>
-<p>
-Ex 2 was also easy to follow, and the key to it seems to be:
-<pre>weights[j] = weights[j] + (learning_rate * inputs[i][j] * error)</pre>
-</p>
-<p>
-Ex 3 illustrated very well the modification of the weight arrays. Many cells were used to demonstrate the principles, 
-but in the last few cells the process was started again from scratch in a more succinct way.
-</p>
+whereas I think page 117 would have been a better place.
+I could follow the explanations of ANN in this chapter until it introduced radial basis function networks on page 137.
+I will have to come back to this after the module is finished.</p>
+<p>The lecturecast described the same concepts, with a better introduction to the biological basis of neural networks.
+We were directed to three notebooks (<a href="#unit7">University of Essex, 2024c</a>) containing examples of perceptrons.</p>
+<p>In Ex 1 I saw that images can be put into notebook cells.
+Also new to me was the fact that the type of an array declared as np.array is numpy.ndarray.
+The simple perceptron example was easy to follow.</p>
+<p>Ex 2 was also easy to follow, and the key to it is:</p>
+<p><img src="images/Unit07Ex2_perceptron_weights.png" width="396" height="39" /></p>
+
+<p>Ex 3 illustrated the modification of the weight arrays. Many cells were used to demonstrate the principles, 
+but in the last few cells the process was started again from scratch more succinctly.</p>
 
 <h3>Unit 8: Training an Artificial Neural Network</h3>
-<p>
-The lecturecast includes a link to a simple demonstration of a 2-layer MLP: <a href="https://hmkcode.com/netflow/">hmkcode.com/netflow/</a>, 
+<p>The lecturecast includes a link to a simple demonstration of a 2-layer MLP: <a href="https://hmkcode.com/netflow/">hmkcode.com/netflow/</a>, 
 unfortunately without attribution or explanation. The main theme was backpropagation but much of the material was dealt with in Unit 7.
 This unit emphasised gradient descent and the use of derivatives to find minima by adjusting the step size when the (negative) slope 
-approaches zero.
-</p>
+approaches zero.</p>
 <p>I read section 4.5 of the textbook, about polynomial classifiers (<a href="#kubat">Kubat, 2021</a>: 79-82),
 which seemed a bit off-topic for this unit.</p>
-<p>
-I read the article about AI writers (<a href="#hutson">Hutson, 2021</a>), which required the use of my library account, and posted the following:
-</p>
+<p>I read the article about benefits and risks of AI writers (<a href="#hutson">Hutson, 2021</a>) and made an Initial Post, in which
+I wrote about the creative output of GPT in work and leisure, citing the prescribed article (<a href="#hutson">Hutson, 2021</a>)
+and also mentioning my own efforts to make it produce computer code. My concern was that AI systems feed each other,
+in a huge echo chamber, and I cited a paper describing them as "stochastic parrots" (<a href="#bender">Bender et al., 2021</a>).</p>
 <p><b>Unit 8 e-Portfolio Activity: Gradient Cost Function</b></p>
-<p>
-The prescribed paper for this activity introduces methods of finding minima in the cost functions of weights (<a href="#mayo">Mayo, 2017</a>).
+<p>The prescribed paper for this activity introduces methods of finding minima in the cost functions of weights (<a href="#mayo">Mayo, 2017</a>).
 After explaining that we want to go down the slope to find the minimum cost, it links to a thread on Stack Exchange in which 
 an original ("initial" in Essex-speak) poster asks how to select a learning rate for SGD (stochastic gradient descent) and the responses
 introduce various training algorithms (<a href="#se2014">Stack Exchange, 2014</a>). 
 These include Adagrad, which requires a learning rate to be set (<a href="#duchi">Duchi et al, 2011</a>), Adadelta, which doesn't (<a href="#zeiler">Zeiler, 2012</a>),
-and one which is growing in use, Adam (<a href="#kingma">Kingma &amp; Ba, 2015</a>).
-</p>
-<p>
-The notebook for the unit (<a href="#unit8">University of Essex, 2024d</a>) starts with an illustration of the problem of a learning rate that is too high and jumps over the minimum,
-and an illustration of a learning rate that shrinks as it approaches a minimum (based on the reducing gradient) so that it lands in
-the minimum. A function, gradient_descent(), is defined, taking an array, x, of inputs and an array, y, of outputs, as parameters, 
-outputting a slope, an intercept and a cost per iteration. 
-There is an example run of 100 iterations, with a value for the learning rate of 0.8, 
+and one which is growing in use, Adam (<a href="#kingma">Kingma &amp; Ba, 2015</a>).</p>
+<p>The notebook (<a href="#unit8">University of Essex, 2024d</a>) starts with an illustration of a learning rate that is too high 
+and jumps over the minimum, and an illustration of a learning rate that shrinks as it approaches a minimum (based on the reducing 
+gradient) so that it lands in the minimum. 
+A function, gradient_descent(), is defined, taking an array, x, of inputs and an array, y, of outputs, as parameters, 
+outputting a slope, an intercept and a cost per iteration:</p>
+<p><img src="images/Unit08Ex4_gradient_descent_cost_function.png" width="504" height="182" /></p>
+<p>There is an example run of 100 iterations, with a value for the learning rate of 0.8, 
 and this produces values for gradient (m), intercept (b) and cost.
 I varied the learning rate with the iterations fixed at 100, and then varied the number of iterations with the learning rate fixed at 0.8,
-and was going to show the results in a table, but on most runs the results converged at infinity, so I think there might have been a problem.
-<!--  and the results are shown below:
-</p>
-<table>
-<tr>
-  <th style="text-align: left;">iterations&nbsp;&nbsp;</th>
-  <th style="text-align: left;">learning rate&nbsp;&nbsp;</th>
-  <th style="text-align: left;">m&nbsp;&nbsp;</th>
-  <th style="text-align: left;">b&nbsp;&nbsp;</th>
-  <th style="text-align: left;">cost&nbsp;&nbsp;</th>
-</tr>
-<tr><td>100</td><td>0</td><td>0</td><td>0</td><td>89 (final values same as initial values)</td></tr>
-<tr><td>100</td><td>0.01</td><td>2.37&nbsp;&nbsp;</td><td>0.74</td><td>1.65</td></tr>
-<tr><td>100</td><td>0.1</td><td>2.45&nbsp;&nbsp;</td><td>1.38&nbsp;&nbsp;</td><td>0.480&nbsp;&nbsp;</td></tr>
-<tr><td>100</td><td>0.4</td><td>2.16</td><td>2.42</td><td>0.063</td></tr>
-<tr><td>100</td><td>0.8</td><td>2.04</td><td>2.85</td><td>0.004</td></tr>
-<tr><td>100</td><td>1</td><td>&infin;</td><td>&infin;</td><td>&infin;</td></tr>
-<tr><td>20</td><td>0.8</td><td>-&infin;</td><td>-&infin;</td><td>&infin;</td></tr>
-<tr><td>50</td><td>0.8</td><td>-&infin;</td><td>-&infin;</td><td>&infin;</td></tr>
-<tr><td>100</td><td>0.8</td><td>2.04</td><td>2.85</td><td>0.004</td></tr>
-<tr><td>200</td><td>0.8</td><td></td><td></td><td></td></tr>
-<tr><td>1,000</td><td>0.8</td><td></td><td></td><td></td></tr>
-</table>
--->
-</p>
-<p>
-When I accessed the paper about 10 Business Applications of Neural Networks from the Required Reading page, 
+and was going to show the results in a table, but on most runs the results converged at infinity, 
+so I think there might have been a problem.</p>
+<p>When I accessed the paper about 10 Business Applications of Neural Networks from the Required Reading page, 
 I found it was not written by a P. Mach but by a Michal Pruciak (<a href="#pruciak">Pruciak, 2021</a>).
-His use of language is intriguing:
-"Are you interested in exploring exceptional instances of neural network applications within the business realm? 
-If so, <b>delve</b> deeper into this article."
-Uses of ANNs mentioned include anomaly detection (fraud), financial forecasting, marketing, route planning, and self-driving cars.
-</p>
-
-<h3>Collaborative Discussion 2: The benefits and risks of AI writers</h3>
-<p>The usefulness of GPT is described in the prescribed article, including its ability to respond to prompts asking for creative output 
-such as "songs, stories, press releases, guitar tabs, interviews, essays, technical manuals" (<a href="#hutson">Hutson, 2021</a>).
-GPT's usefulness as an aid to writing is discussed, and its ability to answer questions on general knowledge and solve mathematical problems.
-GPT has the ability to translate, understand documents and identify at-risk people on social media.
-I myself have made use of GPT's ability to churn out screenfuls of code in different programming languages, and the article mentions this.</p>
-<p>Unfortunately, the produced computer code is usually buggy, which is not a problem if the compiler catches the bugs, 
-but runtime errors can have disastrous effects (in my experience).
-GPT does not really understand the text it reads, it only pretends to.
-There have been instances of AI writers spouting far-out opinions, as I described in my initial post on Industry 4.0 and the failure of an 
-information system (<a href="#butterworth">Butterworth, 2024</a>).
-There is concern that the vast amounts of text and other data ingested by these generative AI systems is not being evaluated critically and 
-is turning human echo chambers into global, pervasive AI echo chambers (<a href="#bender">Bender et al., 2021</a>).</p>
-<p>In my view, the solution to the echo chamber (or stochastic parrots) problem is going to require widespread but careful control of the 
-data ingestion process such that the outputs from AI systems are not used as the inputs to other (or the same) AI systems.
-This could be helped by those very same systems, in fact, I don't see how it could be accomplished otherwise.</p>
-<p>(I have moved the references to Bender, Butterworth and Hutson to the list below.)</p>
+Uses of ANNs mentioned include anomaly detection (fraud), financial forecasting, marketing, route planning, and self-driving cars.</p>
 
 <h3>Unit 9: Introduction to Convolutional Neural Networks (CNNs)</h3>
-<p>
-This unit introduces the type of neural networks that enable computer vision.
-</p>
-<p>
-The lecturecast includes a link to a Kaggle tutorial on 
-<a href="https://www.kaggle.com/code/ryanholbrook/convolution-and-relu/tutorial">Convolution and ReLU</a>, which may be useful in the project.
-There was an explanation of the filtering, detection and condensation steps of feature learning.
-</p>
-<p>
-Chapter 15 is not relevant but Chapter 16 is, so that's what I read. This was a very good exposition of Convolutional Neural Networks,
+<p>Neural networks that enable computer vision.</p>
+<p>The lecturecast includes a link to a Kaggle tutorial on 
+<a href="https://www.kaggle.com/code/ryanholbrook/convolution-and-relu/tutorial">Convolution and ReLU</a>, 
+which may be useful in the project.
+There was an explanation of the filtering, detection and condensation steps of feature learning.</p>
+<p>Chapter 15 is not relevant but Chapter 16 gives a good exposition of Convolutional Neural Networks,
 teaching me a lot about kernels (filters), the "degree of fit" formula, strides &amp; padding, 
 varieties of pooling such as max-pooling and ave-pooling, the use of ReLU and LReLU functions in CNN, the loss function formula,
-dimensionality, tensors, and transfer learning (<a href="#kubat">Kubat, 2021</a>: 327-350).
-</p>
+dimensionality, tensors, and transfer learning (<a href="#kubat">Kubat, 2021</a>: 327-350).</p>
 <p><b>Unit 9 e-Portfolio Activity - CNN Model Activity</b></p>
-<p>
-The BBC's Technology of Business editor wrote an article on "the ethical dilemmas posed by FR" (<a href="#wall">Wall, 2019</a>), in which he
-balances the advantages, such as saving many lives by recognizing a terrorist, against the disadvantages, such as the possibility of
-killing an innocent victim of mistaken identity. He states that skin colour may affect FR's accuracy, and that opposition to FR has led
-to it being banned in San Francisco. 
-He mentions a University of Essex study (five years ago) into the use of FR by the police in central and east London, where it was found that 
-FR usually led to mistaken identity (<a href="#guardian2019">Guardian, 2019</a>).
-After briefly discussing FR's emergence in military situations, Wall concludes: "FR tech remains under suspicion and under scrutiny."
-</p>
+<p>The BBC's Technology of Business editor wrote an article on "the ethical dilemmas posed by FR" (<a href="#wall">Wall, 2019</a>), 
+in which he balances the advantages, such as saving many lives by recognising a terrorist, 
+against the disadvantages, such as the possibility of killing an innocent victim of mistaken identity. 
+He states that skin colour may affect FR's accuracy, and that opposition to FR has led to it being banned in San Francisco. 
+He mentions a University of Essex study (five years ago) into the use of FR by the police in central and east London, 
+where it was found that FR usually led to mistaken identity (<a href="#guardian2019">Guardian, 2019</a>).
+After briefly discussing FR's emergence in military situations, Wall concludes: "FR tech remains under suspicion and under scrutiny."</p>
 <p>My own view is that while there are bound to be cases of mistaken identity, these will quickly be cleared up without danger of 
-innocents being punished, although in a more trigger-happy country there are fewer safeguards, no matter what their Bill of Rights says.</p>
-<p>
-The notebook, Ex1 Convolutional Neural Networks (CNN) - Object Recognition (<a href="#unit9">University of Essex, 2024e</a>), would not run until I ran the following at the start:
+innocents being punished, although in a more trigger-happy country there are fewer safeguards, 
+no matter what their Bill of Rights says.</p>
+<p>The notebook, Ex1 Convolutional Neural Networks (CNN) - Object Recognition (<a href="#unit9">University of Essex, 2024e</a>), 
+would not run until I ran the following at the start:
 <pre>!pip install tensorflow</pre>
 and thereafter it was fine all the way to the penultimate cell, where it refused to run:
 <pre>model.predict_classes(my_image.reshape(1,32,32,3))</pre>
@@ -376,54 +261,50 @@ of the keras library. This comprises ten categories of 6,000 32x32 pixel colour 
 </pre>
 </p>
 <p>As directed I changed the value in <pre>plt.imshow(x_test[16])</pre> and ended up looking at cats, horses, trucks etc.
-A couple of cells down from there, the line <pre>LABEL_NAMES[y_test[16][0]]</pre> produced the correct classification each time.</p>
+The line <pre>LABEL_NAMES[predicted_class[0]]</pre> produced the correct classification each time:</p>
+<p><img src="images/Unit09Ex1_CNN_horse_picture.png" width="315" height="352" /><br clear="all" />
+<img src="images/Unit09Ex1_CNN_horse_label.png" width="315" height="123" /></p>
 <p>I think I'll be using a lot of the Python in this notebook for the presentation project, so I won't describe it twice. I searched Kaggle
 for notebooks with the same name as the one in Ex 1 so I could make the proper attribution to any lifted code but all I found were lots of
 other notebooks demonstrating the same code with the same dataset, so I'll be crediting "many Kaggle members."</p>
 
 <h3>Unit 10: CNN Interactive Learning</h3>
-<p>The focus of this unit is the <a href="https://poloclub.github.io/cnn-explainer">CNN Explainer</a>, an interactive web page that 
-lets the user inspect neural network components to see how propagation and backpropagation work (<a href="#wang2021">Wang et al., 2021</a>).
-There is a 3-minute YouTube video that demonstrates how to use the CNN Explainer (<a href="#wang2020">Wang, 2020</a>).
-</p>
-<p>I uploaded this image to the site:</p>
+<p><a href="https://poloclub.github.io/cnn-explainer">CNN Explainer</a> is an interactive web page that lets you inspect 
+neural network components to see how propagation and backpropagation work (<a href="#wang2021">Wang et al., 2021</a>).
+A YouTube video demonstrates how to use it (<a href="#wang2020">Wang, 2020</a>).</p>
+<p>I uploaded this image to it:</p>
 <p align="center"><img src="images/Red E-Type.jpg" width="316" height="175" /><br clear="all" />&copy;CarsGuide</p>
-<p>but unfortunately it was classified as 64% lifeboat and only 30% sports car.</p>
+<p>It was classified as 64% lifeboat and 30% sports car.</p>
 <p>However, a blue E-Type:</p>
 <p align="center"><img src="images/Blue E-Type.jpg" width="304" height="166" /><br clear="all" />&copy;AutoZine</p>
-<p>was classified correctly (only just) at 29.5% sports car, 27.6% lifeboat, 19% ladybug, 13% koala and 6% school bus.
-Interestingly, the blue Jaguar was still less of a sports car than the red one that was a lifeboat.</p>
-<p>
-On the YouTube page containing the CNN Explainer video there were links to a highly visual video on activation functions, 
+<p>was classified correctly at 29.5% sports car, 27.6% lifeboat, 19% ladybug, 13% koala and 6% school bus.
+The blue Jaguar was still less of a sports car than the red one that was a lifeboat.</p>
+<p>On their YouTube page there were links to a visual video on activation functions, 
 Taylor series and Fourier transforms (<a href="#emergent">Emergent Garden, 2023</a>)
-and a series of videos on neural networks (<a href="#3blue1brown">3Blue1Brown, 2017</a>)
-</p>
+and a playlist about neural networks (<a href="#3blue1brown">3Blue1Brown, 2017</a>)</p>
 
 <h3>Unit 11: Model Selection and Evaluation</h3>
-<p>The reading was about classification in different fields, including medical diagnosis, character recognition, oil-spill recognition, six 
-sleep stages, brain-computer interfaces, and text (<a href="#kubat">Kubat, 2021</a>: 161-178). Chapter 8 seemed appropriate to the unit.</p>
-<p>We were directed to run the Model Performance Measurement notebook (<a href="#unit11">University of Essex, 2024f</a>) with different
-parameters to see how they affected the AUC (Area Under Curve) and R<sup>2</sup> error. It looked to me as if this notebook started with
+<p>The reading was about classification in different fields, including medical diagnosis, character recognition, oil-spill recognition,
+sleep stages, brain-computer interfaces, and text (<a href="#kubat">Kubat, 2021</a>: 161-178).
+Chapter 8 seemed appropriate to the unit.</p>
+<p>I ran the Model Performance Measurement notebook (<a href="#unit11">University of Essex, 2024f</a>) with different
+parameters to see how they affected the AUC (Area Under Curve) and R<sup>2</sup> error. It looked as if this notebook started with
 the results of machine learning, already scored in terms of true and false positives and negatives and therefore not requiring any data.
-These are fed into the confusion_matrix function of the metrics submodule in the sklearn machine learning package, flattened into a single 
-array and then the variables for tn, fp, fn, and tp extracted from this in a tuple assignment.</p>
-<p>AUC seems to be calculated by the functions auc and roc_auc_score, depending on whether the inputs are arrays of coordinates 
-or labels and predicted scores.
-</p>
-<p>
-I noted the AUC for the cell that scored ROC AUC for breast cancer data, and varied the solver parameter, with the following results:
+These are fed into the confusion_matrix function of the metrics submodule in sklearn, flattened into a single 
+array and then the variables for tn, fp, fn, and tp extracted in a tuple assignment.</p>
+<p>AUC is calculated by functions auc and roc_auc_score, depending on whether the inputs are arrays of coordinates 
+or labels and predicted scores.</p>
+<p>I noted AUC for the cell that scored ROC AUC for breast cancer, and varied the solver, with these results:
 <table border="1" cellpadding="5">
 <tr><th>solver</th><th>ROC AUC score</th><th></th></tr>
 <tr><td>lbfgs</td><td>0.9941</td><td>failed to converge</td></tr>
 <tr><td>liblinear</td><td>0.9946</td><td></td></tr>
 <tr><td>newton-cg</td><td>0.9947</td><td></td></tr>
-<tr><td>sag</td><td>0.9506</td><td>max_iter was reached which means the coef_ did not converge</td></tr>
-<tr><td>saga</td><td>0.9384</td><td>max_iter was reached which means the coef_ did not converge</td></tr>
+<tr><td>sag</td><td>0.9506</td><td>max_iter reached, so coef_ did not converge</td></tr>
+<tr><td>saga</td><td>0.9384</td><td>max_iter reached, so coef_ did not converge</td></tr>
 </table>
-From this, if it means anything at all, liblinear was the right solver, and that was the one already chosen.
-</p>
-<p>
-R<sup>2</sup> is calculated in the last two cells of this notepad, and does not require the cells above to be run first. All that is needed is:
+Therefore liblinear was the right solver.</p>
+<p>R<sup>2</sup> is calculated in the last two cells of this notepad, and does not require the cells above to be run first. All that is needed is:
 <pre>
 from sklearn.metrics import r2_score
 y_true = [3, -0.5, 2, 7]
@@ -440,13 +321,15 @@ and this results in a value for r<sup>2</sup> of 0.9486, so I varied the values 
 <tr><td>[3, -0.5, 2, 7]</td><td>[0, 0, 0, 0]</td><td>3.1250</td><td>-1.1328</td><td></td></tr>
 <tr><td>[3, -0.5, 2, 7]</td><td>[3, 0, 2, 7]</td><td>0.1250</td><td>0.9914</td><td>small difference: r<sup>2</sup> close to 1</td></tr>
 </table>
-The main lesson here seems to be that the closer the true and predicted arrays are, the closer r<sup>2</sup> gets to 1.
-</p>
+The main lesson here seems to be that the closer the true and predicted arrays are, the closer r<sup>2</sup> gets to 1.</p>
 
-
+<h3>Assignment:Individual Presentation</h3>
+<p><a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Assignment%20-%20Neural%20Network%20Models%20for%20Object%20Recognition.ipynb">Assignment - Neural Network Models for Object Recognition.ipynb</a></p>
 
 <h3>Unit 12: Industry 4.0 and Machine Learning</h3>
 <p>
+
+<a href=#shorrock">Shorrock, 2013</a>
 
 </p>
 
@@ -456,49 +339,52 @@ The main lesson here seems to be that the closer the true and predicted arrays a
 <a href=""></a><br>
 
 <h3 id="refs">References</h3>
-<p id="3blue1brown">3Blue1Brown (2017) Neural networks. Available from <a href="https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi</a> [Accessed 17 May 2024]</p>
-<p id="aratani">Aratani, L. (2023) US eating disorder helpline takes down AI chatbot over harmful advice. <i>The Guardian</i>. Available from: <a href="https://www.theguardian.com/technology/2023/may/31/eating-disorder-hotline-union-ai-chatbot-harm">www.theguardian.com/technology/2023/may/31/eating-disorder-hotline-union-ai-chatbot-harm</a> [Accessed: 06 April 2024]</p>
+<p id="3blue1brown">3Blue1Brown (2017) Neural networks. Available from <a href="https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi</a> [Accessed 17 May 2024].</p>
+<p id="aratani">Aratani, L. (2023) US eating disorder helpline takes down AI chatbot over harmful advice. <i>The Guardian</i>. Available from: <a href="https://www.theguardian.com/technology/2023/may/31/eating-disorder-hotline-union-ai-chatbot-harm">www.theguardian.com/technology/2023/may/31/eating-disorder-hotline-union-ai-chatbot-harm</a> [Accessed: 06 April 2024].</p>
 <p id="bender">Bender, E.M. et al. (2021) On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? FAccT '21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency. 610-623. DOI: <a href="https://doi.org/10.1145/3442188.3445922">doi.org/10.1145/3442188.3445922</a></p>
 <p id="bruce">Bruce P, Bruce, A. &amp; Gedeck, P. (2019) <i>Practical Statistics for Data Scientists</i>. 2nd ed. Sebastopol, CA: O'Reilly Media Inc.</p>
-<p id="butterworth">Butterworth, C.J. (2024) Initial Post on Industry 4.0. Available from: <a href="https://www.my-course.co.uk/mod/forum/discuss.php?d=217349">www.my-course.co.uk/mod/forum/discuss.php?d=217349</a> [Accessed 14 May 2024]</p>
-<p id="butterworthetal">Butterworth, C.J., Ngugi, J., Narang, A., Bolton, W. (2024) ML Spring '24 Group 1 Project Report. Available from: <a href="docs/ML Spring '24 Group 1 Project Report.pdf">ML Spring '24 Group 1 Project Report.pdf</a> [Accessed 16 May 2024]</p>
-<p id="duchi">Duchi, J., et al. (2011) Adaptive Subgradient Methods for Online Learning and Stochastic Optimization. <i>Journal of Machine Learning Research</i> 12(2011): 2121-2159</p>
-<p id="emergent">Emergent Garden (2023) Watching Neural Networks Learn. Available from: <a href="https://www.youtube.com/watch?v=TkwXa7Cvfr8">www.youtube.com/watch?v=TkwXa7Cvfr8</a> [Accessed 18 May 2024]</p>
-<p id="geeks2023a">Geeks for Geeks (2023a) How to Calculate Jaccard Similarity in Python. Available from: <a href="https://www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/">www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/</a> [Accessed 10 May 2024]</p>
-<p id="geeks2023b">Geeks for Geeks (2023b) Derivative of the Sigmoid Function. Available from: <a href="https://www.geeksforgeeks.org/derivative-of-the-sigmoid-function/">www.geeksforgeeks.org/derivative-of-the-sigmoid-function</a> [Accessed 12 May 2024]</p>
-<p id="geeks2024">Geeks for Geeks (2024) Wine Dataset in Sklearn. Available from <a href="https://www.geeksforgeeks.org/wine-dataset/">www.geeksforgeeks.org/wine-dataset/</a> [Accessed 11 May 2024]</p>
-<p id="guardian2019">Guardian (2019) Police face calls to end use of facial recognition software. Available from: <a href="https://www.theguardian.com/technology/2019/jul/03/police-face-calls-to-end-use-of-facial-recognition-software">www.theguardian.com/technology/2019/jul/03/police-face-calls-to-end-use-of-facial-recognition-software</a> [Accessed 15 May 2024]</p>
-<p id="harris">Harris, N. (2014) Visualizing K-Means Clustering. Available from: <a href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/">www.naftaliharris.com/blog/visualizing-k-means-clustering/</a> [Accessed 10 May 2024]</p>
+<p id="butterworth">Butterworth, C.J. (2024) Initial Post on Industry 4.0. Available from: <a href="https://www.my-course.co.uk/mod/forum/discuss.php?d=217349">www.my-course.co.uk/mod/forum/discuss.php?d=217349</a> [Accessed 14 May 2024].</p>
+<p id="butterworthetal">Butterworth, C.J., Ngugi, J., Narang, A., Bolton, W. (2024) ML Spring '24 Group 1 Project Report. Available from: <a href="docs/ML Spring '24 Group 1 Project Report.pdf">ML Spring '24 Group 1 Project Report.pdf</a> [Accessed 16 May 2024].</p>
+<p id="duchi">Duchi, J., et al. (2011) Adaptive Subgradient Methods for Online Learning and Stochastic Optimisation. <i>Journal of Machine Learning Research</i> 12(2011): 2121-2159</p>
+<p id="emergent">Emergent Garden (2023) Watching Neural Networks Learn. Available from: <a href="https://www.youtube.com/watch?v=TkwXa7Cvfr8">www.youtube.com/watch?v=TkwXa7Cvfr8</a> [Accessed 18 May 2024].</p>
+<p id="geeks2023a">Geeks for Geeks (2023a) How to Calculate Jaccard Similarity in Python. Available from: <a href="https://www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/">www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/</a> [Accessed 10 May 2024].</p>
+<p id="geeks2023b">Geeks for Geeks (2023b) Derivative of the Sigmoid Function. Available from: <a href="https://www.geeksforgeeks.org/derivative-of-the-sigmoid-function/">www.geeksforgeeks.org/derivative-of-the-sigmoid-function</a> [Accessed 12 May 2024].</p>
+<p id="geeks2024">Geeks for Geeks (2024) Wine Dataset in Sklearn. Available from <a href="https://www.geeksforgeeks.org/wine-dataset/">www.geeksforgeeks.org/wine-dataset/</a> [Accessed 11 May 2024].</p>
+<p id="guardian2019">Guardian (2019) Police face calls to end use of facial recognition software. Available from: <a href="https://www.theguardian.com/technology/2019/jul/03/police-face-calls-to-end-use-of-facial-recognition-software">www.theguardian.com/technology/2019/jul/03/police-face-calls-to-end-use-of-facial-recognition-software</a> [Accessed 15 May 2024].</p>
+<p id="harris">Harris, N. (2014) Visualising K-Means Clustering. Available from: <a href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/">www.naftaliharris.com/blog/visualizing-k-means-clustering/</a> [Accessed 10 May 2024].</p>
 <p id="harrison">Harrison, M. (2019) <i>Machine Learning Pocket Reference</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="hutson">Hutson, M. (2021) Robo-writers: the rise and risks of language-generating AI. <i>Nature</i> (591): 22-25. DOI: <a href="https://doi.org/10.1038/d41586-021-00530-0">doi.org/10.1038/d41586-021-00530-0</a></p>
 <p id="javaid">Javaid, M., Haleem, A. &amp; Singh, R.P. (2023) A study on ChatGPT for Industry 4.0: Background, Potentials, Challenges, and Eventualities. <i>Journal of Economy and Technology</i> 1(4)</p>
 <p id="kagermann">Kagermann, H. et al. (2013) Industrie 4.0: Mit dem Internet der Dinge auf dem Weg zur 4. industriellen Revolution [Translated: "Industry 4.0: The Road to the Fourth Industrial Revolution with the Internet of Things"]. acatech DEUTSCHE AKADEMIE DER TECHNIKWISSENSCHAFTEN.</p>
-<p id="khotijah">Khotijah, S. (2000) K-Means Clustering of Iris Dataset. Available from: <a href="https://www.kaggle.com/code/khotijahs1/k-means-clustering-of-iris-dataset">www.kaggle.com/code/khotijahs1/k-means-clustering-of-iris-dataset</a> [Accessed 11 May 2024]</p>
-<p id="kingma">Kingma, D.P. &amp; Ba, J.L. (2015) Adam: A Method for Stochastic Optimization. Available from: <a href="https://arxiv.org/pdf/1412.6980">arxiv.org/pdf/1412.6980</a> [Accessed 15 May 2024]</p>
-<p id="kraft">Kraft, A (2016) Microsoft shuts down AI chatbot after it turned into a Nazi. Available from: <a href="https://www.cbsnews.com/news/microsoft-shuts-down-ai-chatbot-after-it-turned-into-racist-nazi/">www.cbsnews.com/news/microsoft-shuts-down-ai-chatbot-after-it-turned-into-racist-nazi/</a> [Accessed 17 March 2024]</p>
+<p id="khotijah">Khotijah, S. (2000) K-Means Clustering of Iris Dataset. Available from: <a href="https://www.kaggle.com/code/khotijahs1/k-means-clustering-of-iris-dataset">www.kaggle.com/code/khotijahs1/k-means-clustering-of-iris-dataset</a> [Accessed 11 May 2024].</p>
+<p id="kingma">Kingma, D.P. &amp; Ba, J.L. (2015) Adam: A Method for Stochastic Optimisation. Available from: <a href="https://arxiv.org/pdf/1412.6980">arxiv.org/pdf/1412.6980</a> [Accessed 15 May 2024].</p>
+<p id="kraft">Kraft, A (2016) Microsoft shuts down AI chatbot after it turned into a Nazi. Available from: <a href="https://www.cbsnews.com/news/microsoft-shuts-down-ai-chatbot-after-it-turned-into-racist-nazi/">www.cbsnews.com/news/microsoft-shuts-down-ai-chatbot-after-it-turned-into-racist-nazi/</a> [Accessed 17 March 2024].</p>
 <p id="krenkel">Krenkel, W. et al. (2016) Additive Manufacturing as Enabler for Industry 4.0. <i>Procedia CIRP</i> 54(2016): 13-17</p>
 <p id="kubat">Kubat, M. (2021) <i>An Introduction to Machine Learning</i>. 3rd ed. Cham: Springer</p>
-<p id="mayo">Mayo, M. (2017) Neural Network Foundations, Explained: Updating Weights with Gradient Descent &amp; Backpropagation. Available from: <a href="https://www.kdnuggets.com/2017/10/neural-network-foundations-explained-gradient-descent.html">www.kdnuggets.com/2017/10/neural-network-foundations-explained-gradient-descent.html</a> [Accessed 14 May 2024]</p>
-<p id="moorei">Moore, I. (2021) Intro to Exploratory Data Analysis (EDA) in Python. Available from: <a href="https://www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook">www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook</a> [Accessed 26 April 2024]</p>
-<p id="mutebe">Mutebe, A. (2024) Peer Response to Collaborative Discussion 1: The 4th Industrial Revolution. Available from: <a href="https://www.my-course.co.uk/mod/forum/discuss.php?d=217349#p385918">www.my-course.co.uk/mod/forum/discuss.php?d=217349#p385918</a> [Accessed 5 April 2024]</p>
+<p id="mayo">Mayo, M. (2017) Neural Network Foundations, Explained: Updating Weights with Gradient Descent &amp; Backpropagation. Available from: <a href="https://www.kdnuggets.com/2017/10/neural-network-foundations-explained-gradient-descent.html">www.kdnuggets.com/2017/10/neural-network-foundations-explained-gradient-descent.html</a> [Accessed 14 May 2024].</p>
+<p id="moorei">Moore, I. (2021) Intro to Exploratory Data Analysis (EDA) in Python. Available from: <a href="https://www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook">www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook</a> [Accessed 26 April 2024].</p>
+<p id="mutebe_a">Mutebe, A. (2024a) Peer Response to Collaborative Discussion 1: The 4th Industrial Revolution. Available from: <a href="https://www.my-course.co.uk/mod/forum/discuss.php?d=217349#p385918">www.my-course.co.uk/mod/forum/discuss.php?d=217349#p385918</a> [Accessed 5 April 2024].</p>
+<p id="mutebe_b">Mutebe, A. (2024b) Peer Response to Collaborative Discussion 2: Legal and Ethical views on ANN applications. Available from: <a href="https://www.my-course.co.uk/mod/forum/discuss.php?d=230794&parent=417703">https://www.my-course.co.uk/mod/forum/discuss.php?d=230794&parent=417703</a> [Accessed 31 May 2024].</p>
 <p id="nield">Nield, T. (2022) <i>Essential Math for Data Science</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
-<p id="pruciak">Pruciak, M. (2021) 10 Business Applications of Neural Network (With Examples!). Available from: <a href="https://www.ideamotive.co/blog/business-applications-of-neural-network">www.ideamotive.co/blog/business-applications-of-neural-network</a> [Accessed 15 May 2024]</p>
+<p id="openai">OpenAI (2024) GPT-4 technical report. Available from: <a href="https://chat.openai.com/auth/login">chat.openai.com</a> [Accessed: 30 May 2024].</p>
+<p id="pruciak">Pruciak, M. (2021) 10 Business Applications of Neural Network (With Examples!). Available from: <a href="https://www.ideamotive.co/blog/business-applications-of-neural-network">www.ideamotive.co/blog/business-applications-of-neural-network</a> [Accessed 15 May 2024].</p>
 <p id="rotatori">Rotatori, D., Lee, E.J. and Sleeva, S., 2021. The evolution of the workforce during the fourth industrial revolution. <i>Human Resource Development International</i> 24(1): pp.92-103.</p>
 <p id="scavetta">Scavetta, R.J. &amp; Angelov, B (2021) <i>Python and R for the Modern Data Scientist</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
-<p id="schwab">Schwab, K. &amp; Zahid, S. (2020) The Future of Jobs. Available from: <a href="https://www3.weforum.org/docs/WEF_Future_of_Jobs_2020.pdf">www3.weforum.org/docs/WEF_Future_of_Jobs_2020.pdf</a> [Accessed 12 March 2024]</p>
-<p id="shabalin">Shabalin, A.A. (N.D.) K-means clustering. Available from: <a href="http://shabal.in/visuals/kmeans/2.html">shabal.in/visuals/kmeans/2.html</a> [Accessed 10 May 2024]</p>
-<p id="sumana">Solar Sumana, S. (2024) Peer Response to Collaborative Discussion 1: The 4th Industrial Revolution. Available from: <a href="https://www.my-course.co.uk/mod/forum/discuss.php?d=217349#p391196">www.my-course.co.uk/mod/forum/discuss.php?d=217349#p391196</a> [Accessed 5 April 2024]</p>
-<p id="se2014">Stack Exchange (2014) Choosing a learning rate. Available from <a href="https://datascience.stackexchange.com/questions/410/choosing-a-learning-rate">datascience.stackexchange.com/questions/410/choosing-a-learning-rate</a> [Accessed 15 May 2024]</p>
-<p id="unit3">University of Essex. (2024a) Unit 3 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958879">www.my-course.co.uk/mod/page/view.php?id=958879</a> [Accessed 8 May 2024]</p>
-<p id="unit4">University of Essex. (2024b) Unit 4 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818">www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818</a> [Accessed 9 May 2024]</p>
-<p id="unit7">University of Essex. (2024c) Unit 7 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958908">www.my-course.co.uk/mod/page/view.php?id=958908</a> [Accessed 13 May 2024]</p>
-<p id="unit8">University of Essex. (2024d) Unit 8 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958917">www.my-course.co.uk/mod/page/view.php?id=958917</a> [Accessed 15 May 2024]</p>
-<p id="unit9">University of Essex. (2024e) Unit 9 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958925">www.my-course.co.uk/mod/page/view.php?id=958925</a> [Accessed 16 May 2024]</p>
-<p id="unit11">University of Essex. (2024f) Unit 11 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958936">www.my-course.co.uk/mod/page/view.php?id=958936</a> [Accessed 19 May 2024]</p>
-<p id="wall">Wall, M. (2019) Biased and wrong? Facial recognition tech in the dock. Available from: <a href="https://www.bbc.co.uk/news/business-48842750">www.bbc.co.uk/news/business-48842750</a> [Accessed 15 May 2024]</p>
-<p id="wang2020">Wang, Z.J. (2020) Demo Video "CNN Explainer: Learning Convolutional Neural Networks with Interactive Visualization". Available from <a href="https://www.youtube.com/watch?v=HnWIHWFbuUQ">www.youtube.com/watch?v=HnWIHWFbuUQ</a> [Accessed 17 May 2024]</p>
-<p id="wang2021">Wang, Z.J. et al. (2021) CNN Explainer: Learning Convolutional Neural Networks with Interactive Visualization. <i>IEEE Transactions on Visualization and Computer Graphics.</i> 27(2):1396-1406. DOI: <a href="https://doi.org/10.1109/tvcg.2020.3030418">10.1109/TVCG.2020.3030418</a></p>
-<p id="zeiler">Zeiler, M.D. (2012) Adadelta: An Adaptive Learning Rate Method. Available from: <a href="https://arxiv.org/pdf/1212.5701v1">arxiv.org/pdf/1212.5701v1</a> [Accessed 15 May 2024]</p>
+<p id="schwab">Schwab, K. &amp; Zahid, S. (2020) The Future of Jobs. Available from: <a href="https://www3.weforum.org/docs/WEF_Future_of_Jobs_2020.pdf">www3.weforum.org/docs/WEF_Future_of_Jobs_2020.pdf</a> [Accessed 12 March 2024].</p>
+<p id="shabalin">Shabalin, A.A. (N.D.) K-means clustering. Available from: <a href="http://shabal.in/visuals/kmeans/2.html">shabal.in/visuals/kmeans/2.html</a> [Accessed 10 May 2024].</p>
+<p id="shorrock">Shorrock, S. (2013) The HAL 9000 Explanation: "It Can Only Be Attributable to Human Error". Available from: <a href="https://humanisticsystems.com/2013/10/26/the-hal9000-explanation-it-can-only-be-attributable-to-human-error/">humanisticsystems.com/2013/10/26/the-hal9000-explanation-it-can-only-be-attributable-to-human-error/</a> [Accessed 30 May 2024].</p>
+<p id="sumana">Solar Sumana, S. (2024) Peer Response to Collaborative Discussion 1: The 4th Industrial Revolution. Available from: <a href="https://www.my-course.co.uk/mod/forum/discuss.php?d=217349#p391196">www.my-course.co.uk/mod/forum/discuss.php?d=217349#p391196</a> [Accessed 5 April 2024].</p>
+<p id="se2014">Stack Exchange (2014) Choosing a learning rate. Available from <a href="https://datascience.stackexchange.com/questions/410/choosing-a-learning-rate">datascience.stackexchange.com/questions/410/choosing-a-learning-rate</a> [Accessed 15 May 2024].</p>
+<p id="unit3">University of Essex. (2024a) Unit 3 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958879">www.my-course.co.uk/mod/page/view.php?id=958879</a> [Accessed 8 May 2024].</p>
+<p id="unit4">University of Essex. (2024b) Unit 4 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818">www.my-course.co.uk/mod/book/view.php?id=958831&chapterid=12818</a> [Accessed 9 May 2024].</p>
+<p id="unit7">University of Essex. (2024c) Unit 7 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958908">www.my-course.co.uk/mod/page/view.php?id=958908</a> [Accessed 13 May 2024].</p>
+<p id="unit8">University of Essex. (2024d) Unit 8 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958917">www.my-course.co.uk/mod/page/view.php?id=958917</a> [Accessed 15 May 2024].</p>
+<p id="unit9">University of Essex. (2024e) Unit 9 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958925">www.my-course.co.uk/mod/page/view.php?id=958925</a> [Accessed 16 May 2024].</p>
+<p id="unit11">University of Essex. (2024f) Unit 11 of Machine Learning Module. Available from: <a href="https://www.my-course.co.uk/mod/page/view.php?id=958936">www.my-course.co.uk/mod/page/view.php?id=958936</a> [Accessed 19 May 2024].</p>
+<p id="wall">Wall, M. (2019) Biased and wrong? Facial recognition tech in the dock. Available from: <a href="https://www.bbc.co.uk/news/business-48842750">www.bbc.co.uk/news/business-48842750</a> [Accessed 15 May 2024].</p>
+<p id="wang2020">Wang, Z.J. (2020) Demo Video "CNN Explainer: Learning Convolutional Neural Networks with Interactive Visualisation". Available from <a href="https://www.youtube.com/watch?v=HnWIHWFbuUQ">www.youtube.com/watch?v=HnWIHWFbuUQ</a> [Accessed 17 May 2024].</p>
+<p id="wang2021">Wang, Z.J. et al. (2021) CNN Explainer: Learning Convolutional Neural Networks with Interactive Visualisation. <i>IEEE Transactions on Visualisation and Computer Graphics.</i> 27(2):1396-1406. DOI: <a href="https://doi.org/10.1109/tvcg.2020.3030418">10.1109/TVCG.2020.3030418</a></p>
+<p id="zeiler">Zeiler, M.D. (2012) Adadelta: An Adaptive Learning Rate Method. Available from: <a href="https://arxiv.org/pdf/1212.5701v1">arxiv.org/pdf/1212.5701v1</a> [Accessed 15 May 2024].</p>
 
 </body>
 </html>
