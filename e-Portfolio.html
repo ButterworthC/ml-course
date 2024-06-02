@@ -16,7 +16,7 @@
 <p>We were introduced to Schwab &amp; Zahid's paper on the impact of machine learning on the workplace and future levels of employment.
 The lecturecast described the effect of technology in bringing about <i>Industry 4.0</i>,
 described as <i>cyber-physical systems</i> (<a href="#schwab">Schwab &amp; Zahid, 2020</a>).
-Supervised and unsupervised machine learning were mentioned, as were the 4 V's of big data (Volume, Velocity, Variety and Veracity).</p>
+Supervised and unsupervised machine learning were mentioned, as were the 4 V's of big data: Volume, Velocity, Variety and Veracity (<a href="#gcu">Grand Canyon University, 2019</a>), veracity being the one which matters most from a legal or ethical standpoint).</p>
 
 <h3>Unit 2: Exploratory Data Analysis</h3>
 <p>This unit involved preparation for the collaborative discussion on Industry 4.0, the upcoming team data analysis project, and the e-Portfolio.
@@ -56,7 +56,7 @@ Its predict() method performs the same task as the custom function in the previo
 (<a href="#bruce">Bruce et al., 2020</a>: 188-189). 
 The numpy library has a function called polyfit(), which takes arrays containing the x and y coordinates as its first two parameters, 
 and a function called poly1d(), which takes the output from polyfit(), for creating a model based on the data.  
-The value of r-squared given in this example is over 0.94, indicating a strong positive relation.</p>
+The value of R<sup>2</sup> given in this example is over 0.94, indicating a strong positive relation.</p>
 
 <h3>Collaborative Discussion 1: The 4th Industrial Revolution</h3>
 <p>I quoted a German paper credited with introducing the phrase "Industry 4.0" in 2013.
@@ -73,9 +73,7 @@ commented on how this gives "the average consumer" access to custom products.</p
 another similar example (<a href="#sumana">Solar Sumana, 2024</a>) about a chatbot called Tessa, 
 which was supposed to be giving dietary advice to people but ended up giving harmful suggestions 
 (<a href="#aratani">Aratani, 2023</a>).</p>
-<p>The effect of Industry 4.0 on manufacturing has been profound, and a short article such as my initial post cannot 
-possibly expound on all its beneficial (or otherwise) effects.
-However, I have tried to give a positive impression of the innovations, with the caveat that things can go wrong 
+<p>I tried to give a positive impression of the innovations, with the caveat that things can go wrong 
 if data preparation is not carried out carefully enough.</p>
 <p>(References moved below.)</p>
 
@@ -92,7 +90,7 @@ and instantiates the LinearRegression class as regr,
 using its fit() method with one-dimensional arrays of the x and y training data (engine size, CO2 emissions).
 Coefficient and intercept are then given by regr.coeff_ and regr.intercept_.
 Using matplotlib.pyplot, aliased as plt, the regression line is superimposed on the scatter plot.
-The Mean absolute error, Residual sum of squares (MSE), and R2-score (R squared) are calculated.
+The Mean absolute error, Residual sum of squares (MSE), and R2-score (R<sup>2</sup>) are calculated.
 This notebook finishes with a non-linear regression involving a custom sigmoid function.</p>
 <p>I created a notebook to perform the correlation and regression tasks using the population and GDP datasets.
 It needs tweaking because the mean populations do not look right:</p>
@@ -128,7 +126,8 @@ the distance between clusters with the size of clusters and gives a value from -
 <p>I created
 <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Unit06%20K-Means%20clustering%20on%20iris%20data.ipynb">Unit06 K-Means clustering on iris data.ipynb</a>
 and adapted some code for plotting clusters from a Kaggle notebook (<a href="#khotijah">Khotijah, 2000</a>).
-I produced three distinct clusters and plotted them in both 2D and 3D.</p>
+I produced three distinct clusters and plotted them in both 2D and 3D:</p>
+<p><img src="images/Unit06_K-means_3D.png" width="500" height="500" /></p>
 <p>I found an article on the wine dataset (<a href="#geeks2024">Geeks for Geeks, 2024</a>) and created
 <a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Unit06%20K-Means%20clustering%20on%20wine%20data.ipynb">Unit06 K-Means clustering on wine data.ipynb</a>.
 I plotted the first 12 possible combinations of alcohol with the other 12 attributes.
@@ -215,6 +214,11 @@ so I think there might have been a problem.</p>
 <p>When I accessed the paper about 10 Business Applications of Neural Networks from the Required Reading page, 
 I found it was not written by a P. Mach but by a Michal Pruciak (<a href="#pruciak">Pruciak, 2021</a>).
 Uses of ANNs mentioned include anomaly detection (fraud), financial forecasting, marketing, route planning, and self-driving cars.</p>
+
+<h3>Collaborative Discussion 2: Legal and Ethical views on ANN applications</h3>
+<p>
+
+</p>
 
 <h3>Unit 9: Introduction to Convolutional Neural Networks (CNNs)</h3>
 <p>Neural networks that enable computer vision.</p>
@@ -327,11 +331,24 @@ The main lesson here seems to be that the closer the true and predicted arrays a
 <p><a href="https://github.com/ButterworthC/ml-course/blob/main/notebooks/Assignment%20-%20Neural%20Network%20Models%20for%20Object%20Recognition.ipynb">Assignment - Neural Network Models for Object Recognition.ipynb</a></p>
 
 <h3>Unit 12: Industry 4.0 and Machine Learning</h3>
-<p>
-
-<a href=#shorrock">Shorrock, 2013</a>
-
-</p>
+<p><b>A prognostic machine learning model: prediction</b></p>
+<p>In space, unexpected events can have catastrophic consequences, for example, the failure of communication systems can bring a 
+mission to an abrupt end.  If such a fault could be anticipated in time, perhaps a workaround could be found to save the mission.
+This scenario happens in 2001: A Space Odyssey, when the self-aware onboard computer predicts a failure in a communications
+circuit board, prompting a crew member to do a spacewalk to replace it (<a href="#shorrock">Shorrock, 2013</a>).  
+Unfortunately, this is just a ruse to get the crew member outside, and the computer's intentions are neither legal nor ethical.</p>
+<p>Down on the ground, predicting failure is becoming a valuable tool in factories, where entire production lines can grind to 
+a halt due to the failure of a single mechanism, and I had experience of this when I worked for the Ford Motor Company.
+The process of prediction is described in a paper on industrial prognosis, which it defines as "the capability to estimate and 
+anticipate events of interest regarding industrial assets and production processes" (<a href="#diaz-olivan">Diez-Olivan, 2019</a>).
+It involves the continuous collection and ingestion of vast quantities of data produced by sensors, which builds up into histories
+of the components being monitored.  This training data is used to develop ML models and more of it is used for testing.
+The paper names "Cross Industry Standard Process for Data Mining (CRISP)" as the industry standard for this. 
+It consists of a pipeline of processes with arrows showing progress and feedbacks, culminating in "Deployment."</p>
+<p align = "center"><img src="images/CRISP.jpg" width="662" height="215" /><br clear="all" />(<a href="#diaz-olivan">Diez-Olivan, 2019</a>)</p>
+<p>Parameters to be monitored include a component's work schedule, stresses, and historical likelihood of failure.</p>
+<p>I think the ethical considerations here should include the maintenance of quality and safety in products to be used by people and it is
+therefore essential to deal with faulty production processes.</p>
 
 
 <a href=""></a><br>
@@ -345,22 +362,24 @@ The main lesson here seems to be that the closer the true and predicted arrays a
 <p id="bruce">Bruce P, Bruce, A. &amp; Gedeck, P. (2019) <i>Practical Statistics for Data Scientists</i>. 2nd ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="butterworth">Butterworth, C.J. (2024) Initial Post on Industry 4.0. Available from: <a href="https://www.my-course.co.uk/mod/forum/discuss.php?d=217349">www.my-course.co.uk/mod/forum/discuss.php?d=217349</a> [Accessed 14 May 2024].</p>
 <p id="butterworthetal">Butterworth, C.J., Ngugi, J., Narang, A., Bolton, W. (2024) ML Spring '24 Group 1 Project Report. Available from: <a href="docs/ML Spring '24 Group 1 Project Report.pdf">ML Spring '24 Group 1 Project Report.pdf</a> [Accessed 16 May 2024].</p>
-<p id="duchi">Duchi, J., et al. (2011) Adaptive Subgradient Methods for Online Learning and Stochastic Optimisation. <i>Journal of Machine Learning Research</i> 12(2011): 2121-2159</p>
+<p id="diaz-olivan">Diez-Olivan, A. (2019) Data fusion and machine learning for industrial prognosis: Trends and perspectives towards Industry 4.0. <i>Information Fusion</i> 50(2019): 92–111.</p>
+<p id="duchi">Duchi, J., et al. (2011) Adaptive Subgradient Methods for Online Learning and Stochastic Optimisation. <i>Journal of Machine Learning Research</i> 12(2011): 2121-2159.</p>
 <p id="emergent">Emergent Garden (2023) Watching Neural Networks Learn. Available from: <a href="https://www.youtube.com/watch?v=TkwXa7Cvfr8">www.youtube.com/watch?v=TkwXa7Cvfr8</a> [Accessed 18 May 2024].</p>
 <p id="geeks2023a">Geeks for Geeks (2023a) How to Calculate Jaccard Similarity in Python. Available from: <a href="https://www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/">www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/</a> [Accessed 10 May 2024].</p>
 <p id="geeks2023b">Geeks for Geeks (2023b) Derivative of the Sigmoid Function. Available from: <a href="https://www.geeksforgeeks.org/derivative-of-the-sigmoid-function/">www.geeksforgeeks.org/derivative-of-the-sigmoid-function</a> [Accessed 12 May 2024].</p>
 <p id="geeks2024">Geeks for Geeks (2024) Wine Dataset in Sklearn. Available from <a href="https://www.geeksforgeeks.org/wine-dataset/">www.geeksforgeeks.org/wine-dataset/</a> [Accessed 11 May 2024].</p>
+<p id="gcu">Grand Canyon University (2019) What are the 4 V’s of Big Data? Available from: <a href="https://www.gcu.edu/blog/engineering-technology/what-are-4-vs-big-data">www.gcu.edu/blog/engineering-technology/what-are-4-vs-big-data</a> [Accessed 1 June 2024].</p>
 <p id="guardian2019">Guardian (2019) Police face calls to end use of facial recognition software. Available from: <a href="https://www.theguardian.com/technology/2019/jul/03/police-face-calls-to-end-use-of-facial-recognition-software">www.theguardian.com/technology/2019/jul/03/police-face-calls-to-end-use-of-facial-recognition-software</a> [Accessed 15 May 2024].</p>
 <p id="harris">Harris, N. (2014) Visualising K-Means Clustering. Available from: <a href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/">www.naftaliharris.com/blog/visualizing-k-means-clustering/</a> [Accessed 10 May 2024].</p>
 <p id="harrison">Harrison, M. (2019) <i>Machine Learning Pocket Reference</i>. 1st ed. Sebastopol, CA: O'Reilly Media Inc.</p>
 <p id="hutson">Hutson, M. (2021) Robo-writers: the rise and risks of language-generating AI. <i>Nature</i> (591): 22-25. DOI: <a href="https://doi.org/10.1038/d41586-021-00530-0">doi.org/10.1038/d41586-021-00530-0</a></p>
-<p id="javaid">Javaid, M., Haleem, A. &amp; Singh, R.P. (2023) A study on ChatGPT for Industry 4.0: Background, Potentials, Challenges, and Eventualities. <i>Journal of Economy and Technology</i> 1(4)</p>
+<p id="javaid">Javaid, M., Haleem, A. &amp; Singh, R.P. (2023) A study on ChatGPT for Industry 4.0: Background, Potentials, Challenges, and Eventualities. <i>Journal of Economy and Technology</i> 1(4).</p>
 <p id="kagermann">Kagermann, H. et al. (2013) Industrie 4.0: Mit dem Internet der Dinge auf dem Weg zur 4. industriellen Revolution [Translated: "Industry 4.0: The Road to the Fourth Industrial Revolution with the Internet of Things"]. acatech DEUTSCHE AKADEMIE DER TECHNIKWISSENSCHAFTEN.</p>
 <p id="khotijah">Khotijah, S. (2000) K-Means Clustering of Iris Dataset. Available from: <a href="https://www.kaggle.com/code/khotijahs1/k-means-clustering-of-iris-dataset">www.kaggle.com/code/khotijahs1/k-means-clustering-of-iris-dataset</a> [Accessed 11 May 2024].</p>
 <p id="kingma">Kingma, D.P. &amp; Ba, J.L. (2015) Adam: A Method for Stochastic Optimisation. Available from: <a href="https://arxiv.org/pdf/1412.6980">arxiv.org/pdf/1412.6980</a> [Accessed 15 May 2024].</p>
 <p id="kraft">Kraft, A (2016) Microsoft shuts down AI chatbot after it turned into a Nazi. Available from: <a href="https://www.cbsnews.com/news/microsoft-shuts-down-ai-chatbot-after-it-turned-into-racist-nazi/">www.cbsnews.com/news/microsoft-shuts-down-ai-chatbot-after-it-turned-into-racist-nazi/</a> [Accessed 17 March 2024].</p>
-<p id="krenkel">Krenkel, W. et al. (2016) Additive Manufacturing as Enabler for Industry 4.0. <i>Procedia CIRP</i> 54(2016): 13-17</p>
-<p id="kubat">Kubat, M. (2021) <i>An Introduction to Machine Learning</i>. 3rd ed. Cham: Springer</p>
+<p id="krenkel">Krenkel, W. et al. (2016) Additive Manufacturing as Enabler for Industry 4.0. <i>Procedia CIRP</i> 54(2016): 13-17.</p>
+<p id="kubat">Kubat, M. (2021) <i>An Introduction to Machine Learning</i>. 3rd ed. Cham: Springer.</p>
 <p id="mayo">Mayo, M. (2017) Neural Network Foundations, Explained: Updating Weights with Gradient Descent &amp; Backpropagation. Available from: <a href="https://www.kdnuggets.com/2017/10/neural-network-foundations-explained-gradient-descent.html">www.kdnuggets.com/2017/10/neural-network-foundations-explained-gradient-descent.html</a> [Accessed 14 May 2024].</p>
 <p id="moorei">Moore, I. (2021) Intro to Exploratory Data Analysis (EDA) in Python. Available from: <a href="https://www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook">www.kaggle.com/code/imoore/intro-to-exploratory-data-analysis-eda-in-python/notebook</a> [Accessed 26 April 2024].</p>
 <p id="mutebe_a">Mutebe, A. (2024a) Peer Response to Collaborative Discussion 1: The 4th Industrial Revolution. Available from: <a href="https://www.my-course.co.uk/mod/forum/discuss.php?d=217349#p385918">www.my-course.co.uk/mod/forum/discuss.php?d=217349#p385918</a> [Accessed 5 April 2024].</p>
